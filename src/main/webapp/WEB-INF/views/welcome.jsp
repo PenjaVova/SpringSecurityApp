@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -8,6 +9,8 @@
 <html>
 <head>
     <title>Главная</title>
+    <link rel="icon" type="image/x-icon"
+          href="<s:url value="/resources/dist/img/favicon.ico"/>" />
     <%@ include file = "jspf/head.jspf"%>
 </head>
 
@@ -176,8 +179,6 @@
       </div>
     </nav>
   </header>
-
-
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
 
