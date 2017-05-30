@@ -11,7 +11,7 @@
         <param-value>/WEB-INF/appconfig-root.xml</param-value>
     </context-param>
 
-    <!--фильтр для кирилицы-->
+<!--фильтр для кирилицы-->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -24,13 +24,11 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
-    <!--КОНЕЦ фильтр для кирилицы-->
-
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+<!--КОНЕЦ фильтр для кирилицы-->
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>

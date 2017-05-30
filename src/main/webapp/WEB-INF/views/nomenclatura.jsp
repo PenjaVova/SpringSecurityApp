@@ -1,6 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -9,7 +9,7 @@
 <head>
     <title>autocomleteNom</title>
     <!-- jQuery 2.2.3 -->
-    <script src="${contextPath}/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="${contextPath}/resources/plugins/jQuery/jquery.1.10.2.min.js"></script>
     <script src="${contextPath}/resources/plugins/jQuery/jquery.autocomplete.min.js"></script>
         <!-- Bootstrap 3.3.6 -->
     <script src="${contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
@@ -51,8 +51,5 @@
 
     });
 </script>
-<!-- jQuery 2.2.3 -->
-<script src="${contextPath}/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script src="${contextPath}/resources/plugins/jQuery/jquery.autocomplete.min.js"></script>
 </body>
 </html>

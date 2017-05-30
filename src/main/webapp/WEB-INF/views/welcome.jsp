@@ -7,31 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>starter KOS</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="${contextPath}/resources/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="${contextPath}/resources/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect.
-  -->
-  <link rel="stylesheet" href="${contextPath}/resources/dist/css/skins/skin-blue.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <title>Главная</title>
+    <%@ include file = "jspf/head.jspf"%>
 </head>
 
 <body style="height: auto;" class="skin-blue sidebar-mini">
@@ -40,7 +17,7 @@
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="file:///C:/Users/vova/Desktop/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20Java/AdminLTE-master/index2.html" class="logo">
+    <a href="${contextPath}/welcome.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>MK</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -219,80 +196,67 @@
         </div>
       </div>
 
-      <!-- search form (Optional) 
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input name="q" class="form-control" placeholder="Search..." type="text">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
+<!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li class="header">Меню Сайта</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li class=""><a href="#"><i class="fa fa-link"></i> <span>Клиенты</span></a></li>
+            <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-link"></i> <span>Номенклатура</span></a></li>
 
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
-        <li class="header">Меню Сайта</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li class=""><a href="#"><i class="fa fa-link"></i> <span>Клиенты</span></a></li>
-		<li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-link"></i> <span>Номенклатура</span></a></li>
-		
-	    <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Заказы</span>
-            <span class="pull-right-container">
+            <li class="treeview">
+                <a href="#"><i class="fa fa-link"></i> <span>Заказы</span>
+                    <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-          </a>
-          <ul style="display: none;" class="treeview-menu">
-            <li><a href="">Заказы в работе</a></li>
-            <li><a href="#">Добавить новый заказ</a></li>
-          </ul>
-        </li>
-		
-		
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-<!--СОГЛАСОВАНИЕ-->	
-        <li class="treeview">	
-          <a href="#"><i class="fa fa-link"></i> <span>Согласование</span>
-            <span class="pull-right-container">
+                </a>
+                <ul style="display: none;" class="treeview-menu">
+                    <li><a href="">Заказы в работе</a></li>
+                    <li><a href="#">Добавить новый заказ</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <!--СОГЛАСОВАНИЕ-->
+            <li class="treeview">
+                <a href="#"><i class="fa fa-link"></i> <span>Согласование</span>
+                    <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-          </a>
-          <ul style="display: none;" class="treeview-menu">
-            <li>
-          <a href="#">
-            <i class="fa fa-envelope"></i> <span>Калькуляции</span>
-            <span class="pull-right-container">
+                </a>
+                <ul style="display: none;" class="treeview-menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-envelope"></i> <span>Калькуляции</span>
+                            <span class="pull-right-container">
               <small class="label pull-right bg-red">5</small>
             </span>
-          </a>
-        </li>
-<!--закупка-->
-			<li>
-				<a href="#">
-					<i class="fa fa-envelope"></i> <span>закупки</span>
-					<span class="pull-right-container">
+                        </a>
+                    </li>
+                    <!--закупка-->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-envelope"></i> <span>закупки</span>
+                            <span class="pull-right-container">
 					<small class="label pull-right bg-yellow">12</small>
 					</span>
-				</a>
-			</li>
-<!--конец закупка-->
-		<!--еще ЧТО-то-->
-            <li>
-				<a href="#">
-					<i class="fa fa-envelope"></i> <span>еще что-то</span>
-					<span class="pull-right-container">
+                        </a>
+                    </li>
+                    <!--конец закупка-->
+                    <!--еще ЧТО-то-->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-envelope"></i> <span>еще что-то</span>
+                            <span class="pull-right-container">
 					<small class="label pull-right bg-green">12</small>
 					</span>
-				</a>
-			</li>
-			
-          </ul>
-        </li>
-<!--КОНЕЦ СОГЛАСОВАНИЕ-->		
-      </ul>
-      <!-- /.sidebar-menu -->
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <!--КОНЕЦ СОГЛАСОВАНИЕ-->
+        </ul>
+        <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -302,8 +266,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        Заголовок на странице
+        <small>описание функционала</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -322,107 +286,16 @@
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      информация
-    </div>
-    <!-- Default to the left -->
-    <strong>ЧП Михальченко </strong> Все права защищены.
-  </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a aria-expanded="true" href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li class=""><a aria-expanded="false" href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="pull-right-container">
-                  <span class="label label-danger pull-right">70%</span>
-                </span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input class="pull-right" type="checkbox">
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div style="position: fixed; height: auto;" class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 2.2.3 -->
+<!-- REQUIRED JS SCRIPTS
+jQuery 2.2.3 -->
 <script src="${contextPath}/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="${contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="${contextPath}/resources/dist/js/app.min.js"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
 
 </body>
 </html>
