@@ -20,7 +20,7 @@
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="${contextPath}/welcome.jsp" class="logo">
+    <a href="/${contextPath}/welcome.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>MK</b></span>
       <!-- logo for regular state and mobile devices -->
