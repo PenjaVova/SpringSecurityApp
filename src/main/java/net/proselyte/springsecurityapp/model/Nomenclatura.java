@@ -6,7 +6,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "nomenclatura")
-public class nomenclatura {
+public class Nomenclatura {
+
+    public Nomenclatura() {}
 
     @Id
     @Column(name = "id")
@@ -43,4 +45,12 @@ public class nomenclatura {
         this.nom_elem = nom_elem;
     }
 
+    @Override
+    public String toString() {
+        return "nomenclatura{" +
+                "id=" + id +
+                ", nom_gruppa='" + nom_gruppa + '\'' +
+                ", nom_elem='" + nom_elem + '\'' +
+                '}';
+    }
 }

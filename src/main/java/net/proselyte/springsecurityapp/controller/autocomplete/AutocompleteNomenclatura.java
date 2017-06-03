@@ -27,10 +27,10 @@ public class AutocompleteNomenclatura {
 
     }
 
-    @RequestMapping(value = "/nomenclatura", method = RequestMethod.GET)
+    @RequestMapping(value = "/AutocompleteNomenclatura", method = RequestMethod.GET)
     public ModelAndView getPages() {
 
-        ModelAndView model = new ModelAndView("nomenclatura");
+        ModelAndView model = new ModelAndView("AutocompleteNomenclatura");
         return model;
 
     }
