@@ -2,11 +2,11 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-<%--<%@ page session="false" %>--%>
+<%@ page session="false" %>
 
 <html>
 <head>
-    <title>nomenclaturadata</title>
+    <title>nomenclaturaDATA</title>
 
     <style type="text/css">
         .tg {

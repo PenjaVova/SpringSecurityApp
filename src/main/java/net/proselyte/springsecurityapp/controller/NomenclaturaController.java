@@ -48,10 +48,19 @@ public class NomenclaturaController {
         return "redirect:/nomenclatura";
     }
 //изменить
+@RequestMapping("edit/{id}")
+public String editNomenclatura(@PathVariable("id") int id, Model model){
+    model.addAttribute("nomenclatura", this.nomenclaturaService.getNomenclaturaById(id));
+    model.addAttribute("listNomenclatura", this.nomenclaturaService.listNomenclatura());
+
+    return "nomenclatura";
+}
+
+
     @RequestMapping ("/nomenclaturadata/{id}/")
         public String nomenclaturadata (@PathVariable("id") int id, Model model) {
         model.addAttribute("nomenclatura", this.nomenclaturaService.getNomenclaturaById(id));
-            return "redirect:/nomenclaturadata";
+            return "nomenclaturadata";
     }
 
 }

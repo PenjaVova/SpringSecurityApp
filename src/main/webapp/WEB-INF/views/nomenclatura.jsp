@@ -1,11 +1,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
-<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
-<%--<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>--%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ page session="false" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -200,8 +199,7 @@
                     <img src="${contextPath}/resources/dist/img/kos_.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Константин</p>
-                    <p>Михальченко</p>
+                    <p>${pageContext.request.userPrincipal.name}</p> <%--имя пользователя--%>
 
                 </div>
             </div>
@@ -286,14 +284,20 @@
         </section>
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content" >
             <div class="row">
                 <div class="col-xs-12">
+<!------------------------------------------------------>
                     <div class="box">
-                        <%--<div class="box-header">--%>
-                            <%--<h3 class="box-title">Data Table With Full Features</h3>--%>
-                        <%--</div>--%>
-                        <!-- /.box-header -->
+                        <div class="box-header">
+                            <h3 class="box-title">Список элементов</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Свернуть">
+                                    <i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Скрыть">
+                                    <i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
                         <!-- Основная таблица -->
                         <c:if test="${!empty listNomenclatura}">
                             <div class="box-body">
@@ -304,7 +308,7 @@
                                         <th>Группа материалов</th>
                                         <th>Наименование</th>
                                         <th>Изменить</th>
-                                        <th>удалить</th>
+                                        <th>Удалить</th>
                                     </tr>
                                     </thead><!--/Шапка -->
                                     <tbody>
@@ -312,7 +316,7 @@
                                         <tr>
                                             <td>${nomenclatura.id}</td>
                                             <td>${nomenclatura.nom_gruppa}</td>
-                                            <td>${nomenclatura.nom_elem}</td>
+                                            <td><a href="/nomenclaturadata/${nomenclatura.id}" target="_blank"> ${nomenclatura.nom_elem}</a></td>
                                             <td><a href="<c:url value='/edit/${nomenclatura.id}'/>">изменить</a></td>
                                             <td><a href="<c:url value='/remove/${nomenclatura.id}'/>">удалить</a></td>
                                         </tr>
@@ -324,14 +328,71 @@
                                         <th>Группа материалов</th>
                                         <th>Наименование</th>
                                         <th>Изменить</th>
-                                        <th>удалить</th>
+                                        <th>Удалить</th>
                                     </tr>
                                     </tfoot>
                                 </table>
                             </div>
+                            <!-- КОНЕЦ Основная таблица -->
                         </c:if>
-
                     </div><!-- /.box -->
+<!--Добавить элемент---------------------------------------------------->
+
+                    <h1>Add a nomenclatura</h1>
+
+                    <c:url var="addAction" value="/nomenclatura/add"/>
+
+                    <form:form action="${addAction}" commandName="nomenclatura">
+                        <table>
+                            <c:if test="${!empty nomenclatura.nom_elem}">
+                                <tr>
+                                    <td>
+                                        <form:label path="id">
+                                            <spring:message text="ID"/>
+                                        </form:label>
+                                    </td>
+                                    <td>
+                                        <form:input path="id" readonly="true" size="8" disabled="true"/>
+                                        <form:hidden path="id"/>
+                                    </td>
+                                </tr>
+                            </c:if>
+                            <tr>
+                                <td>
+                                    <form:label path="nom_gruppa">
+                                        <spring:message text="nom_gruppa"/>
+                                    </form:label>
+                                </td>
+                                <td>
+                                    <form:input path="nom_gruppa"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form:label path="nom_elem">
+                                        <spring:message text="nom_elem"/>
+                                    </form:label>
+                                </td>
+                                <td>
+                                    <form:input path="nom_elem"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <c:if test="${!empty nomenclatura.nom_elem}">
+                                        <input type="submit"
+                                               value="<spring:message text="Edit Nomenclatura"/>"/>
+                                    </c:if>
+                                    <c:if test="${empty nomenclatura.nom_elem}">
+                                        <input type="submit"
+                                               value="<spring:message text="Add Nomenclatura"/>"/>
+                                    </c:if>
+                                </td>
+                            </tr>
+                        </table>
+                    </form:form>
+<!--КОНЕЦ Добавить элемент------------------------------------------------>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </section> <!-- /.content-wrapper -->
@@ -358,7 +419,8 @@
     <!-- применяет к таблице плагин и перевод на русский язык -->
     <script>
         $(function () {
-            $("#example").DataTable({
+            $("#example").DataTable(
+                    {
                 language: {
                     "processing": "Подождите...",
                     "search": "Поиск:",
@@ -381,7 +443,8 @@
                         "sortDescending": ": активировать для сортировки столбца по убыванию"
                     }
                 }
-            });
+            }
+            );
         });
     </script>
 </div>
