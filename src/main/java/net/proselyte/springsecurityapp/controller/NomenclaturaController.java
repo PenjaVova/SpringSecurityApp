@@ -57,7 +57,7 @@ public String editNomenclatura(@PathVariable("id") int id, Model model){
 }
 
 
-    @RequestMapping ("/nomenclaturadata/{id}/")
+    @RequestMapping ("nomenclaturadata/{id}")
         public String nomenclaturadata (@PathVariable("id") int id, Model model) {
         model.addAttribute("nomenclatura", this.nomenclaturaService.getNomenclaturaById(id));
             return "nomenclaturadata";

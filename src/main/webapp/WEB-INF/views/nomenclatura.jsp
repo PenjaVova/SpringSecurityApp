@@ -316,7 +316,7 @@
                                         <tr>
                                             <td>${nomenclatura.id}</td>
                                             <td>${nomenclatura.nom_gruppa}</td>
-                                            <td><a href="/nomenclaturadata/${nomenclatura.id}" target="_blank"> ${nomenclatura.nom_elem}</a></td>
+                                            <td><a href="<c:url value='/nomenclaturadata/${nomenclatura.id}'/>" target="_blank"> ${nomenclatura.nom_elem}</a></td>
                                             <td><a href="<c:url value='/edit/${nomenclatura.id}'/>">изменить</a></td>
                                             <td><a href="<c:url value='/remove/${nomenclatura.id}'/>">удалить</a></td>
                                         </tr>
