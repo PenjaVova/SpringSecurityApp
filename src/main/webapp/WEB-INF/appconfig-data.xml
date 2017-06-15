@@ -49,6 +49,7 @@
                 <value>net.proselyte.springsecurityapp.model.User</value>
                 <value>net.proselyte.springsecurityapp.model.Role</value>
                 <value>net.proselyte.springsecurityapp.model.Nomenclatura</value>
+                <value>net.proselyte.springsecurityapp.model.Client</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -70,6 +71,15 @@
         <property name="nomenclaturaDao" ref="nomenclaturaDao"/>
     </bean>
 
+    <!--clientDao bean-->
+    <bean id="clientDao" class="net.proselyte.springsecurityapp.dao.ClientDaoImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <!--clientService bean-->
+    <bean id="clientService" class="net.proselyte.springsecurityapp.service.ClientServiceImpl">
+        <property name="clientDao" ref="clientDao"/>
+    </bean>
 
     <tx:annotation-driven/>
 

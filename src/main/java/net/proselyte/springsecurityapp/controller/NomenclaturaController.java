@@ -42,7 +42,7 @@ public class NomenclaturaController {
     }
 //удалить
     @RequestMapping("/remove/{id}")
-        public String removeBook(@PathVariable("id") int id){
+        public String removeNomenclatura(@PathVariable("id") int id){
             this.nomenclaturaService.removeNomenclatura(id);
 
         return "redirect:/nomenclatura";
