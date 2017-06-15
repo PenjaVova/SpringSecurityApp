@@ -41,14 +41,14 @@ public class NomenclaturaController {
         return "redirect:/nomenclatura";
     }
 //удалить
-    @RequestMapping("/remove/{id}")
+    @RequestMapping("/nomenclatura/remove/{id}") //только что
         public String removeNomenclatura(@PathVariable("id") int id){
             this.nomenclaturaService.removeNomenclatura(id);
 
         return "redirect:/nomenclatura";
     }
 //изменить
-@RequestMapping("edit/{id}")
+@RequestMapping("nomenclatura/edit/{id}")
 public String editNomenclatura(@PathVariable("id") int id, Model model){
     model.addAttribute("nomenclatura", this.nomenclaturaService.getNomenclaturaById(id));
     model.addAttribute("listNomenclatura", this.nomenclaturaService.listNomenclatura());

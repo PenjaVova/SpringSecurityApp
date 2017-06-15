@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Номенклатура</title>
+    <title>Клиенты</title>
     <link rel="icon" type="image/x-icon"
           href="<s:url value="/resources/dist/img/favicon.ico"/>" />
     <%@ include file = "jspf/head.jspf"%>
@@ -321,7 +321,7 @@
                                     <c:forEach items="${listClient}" var="client">
                                         <tr>
                                             <td>${client.id}</td>
-                                            <td><a href="<c:url value='/cliendata/${client.id}'/>" target="_blank"> ${client.fio}</a></td>
+                                            <td><a href="<c:url value='/clientdata/${client.id}'/>" target="_blank"> ${client.fio}</a></td>
                                             <td>${client.phone}</td>
                                             <td>${client.inn}</td>
                                             <td>${client.fiz_ur}</td>
