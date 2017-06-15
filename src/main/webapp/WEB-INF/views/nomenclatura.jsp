@@ -3,6 +3,7 @@
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="select" uri="http://www.springframework.org/tags/form" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ page session="false" %>
 
@@ -317,7 +318,7 @@
                                             <td>${nomenclatura.id}</td>
                                             <td>${nomenclatura.nom_gruppa}</td>
                                             <td><a href="<c:url value='/nomenclaturadata/${nomenclatura.id}'/>" target="_blank"> ${nomenclatura.nom_elem}</a></td>
-                                            <td><a href="<c:url value='/edit/${nomenclatura.id}'/>">изменить</a></td>
+                                            <td><a href="<c:url value='/nomenclatura/edit/${nomenclatura.id}'/>">изменить</a></td>
                                             <td><a href="<c:url value='/nomenclatura/remove/${nomenclatura.id}'/>">удалить</a></td>
                                         </tr>
                                     </c:forEach>
@@ -337,14 +338,42 @@
                         </c:if>
                     </div><!-- /.box -->
 <!--Добавить элемент---------------------------------------------------->
-
-                    <h1>Add a nomenclatura</h1>
-
+                    <div class="box">
+                    <div class="box-header">
+                        <!--box-title-->
+                        <c:if test="${!empty nomenclatura.nom_elem}">
+                            <h3 class="box-title">Изменить элемент</h3>
+                        </c:if>
+                        <c:if test="${empty nomenclatura.nom_elem}">
+                            <h3 class="box-title">Добавить  элемент</h3>
+                        </c:if>
+                        <!--/box-title-->
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Свернуть">
+                                <i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Скрыть">
+                                <i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
                     <c:url var="addAction" value="/nomenclatura/add"/>
-
+                    <div class="box-body">
                     <form:form action="${addAction}" commandName="nomenclatura">
                         <table>
                             <c:if test="${!empty nomenclatura.nom_elem}">
+
+                                <%--<div class="form-horizontal">--%>
+                                    <%--<div class="form-group">--%>
+                                        <%--<label for="nom_elem" class="col-sm-2 control-label">--%>
+                                            <%--<form:label path="id">--%>
+                                                <%--<spring:message text="ID"/>--%>
+                                            <%--</form:label></label>--%>
+
+                                        <%--<div class="col-sm-10">--%>
+                                            <%--<form:input path="id" readonly="true" disabled="true" class="form-control" type="text" />--%>
+                                            <%--<form:hidden path="id" class="form-control" type="text" />--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
                                 <tr>
                                     <td>
                                         <form:label path="id">
@@ -357,41 +386,64 @@
                                     </td>
                                 </tr>
                             </c:if>
-                            <tr>
-                                <td>
-                                    <form:label path="nom_gruppa">
-                                        <spring:message text="nom_gruppa"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="nom_gruppa"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <form:label path="nom_elem">
-                                        <spring:message text="nom_elem"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="nom_elem"/>
-                                </td>
-                            </tr>
+
+                            <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="nom_elem" class="col-sm-2 control-label">Группа материалов</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="nom_gruppa" placeholder="начните вводить материал" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            </div>
+                            <%--<tr>--%>
+                                <%--<td>--%>
+                                    <%--<form:label path="nom_gruppa">--%>
+                                        <%--<spring:message text="Группа материалов"/>--%>
+                                    <%--</form:label>--%>
+                                <%--</td>--%>
+                                <%--<td>--%>
+                                    <%--<form:input path="nom_gruppa"/>--%>
+                                <%--</td>--%>
+                            <%--</tr>--%>
+<%----------------------------------------------------------%>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="nom_elem" class="col-sm-2 control-label">Наименование</label>
+
+                                    <div class="col-sm-10">
+                                        <form:input path="nom_elem" placeholder="начните вводить материал" class="form-control" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+<%----------------------------------------------------------%>
+                            <%--<tr>--%>
+                                <%--<td>--%>
+                                    <%--<form:label path="nom_elem">--%>
+                                        <%--<spring:message text="Наименование"/>--%>
+                                    <%--</form:label>--%>
+                                <%--</td>--%>
+                                <%--<td>--%>
+                                    <%--<form:input path="nom_elem"/>--%>
+                                <%--</td>--%>
+                            <%--</tr>--%>
 
                             <tr>
                                 <td colspan="2">
                                     <c:if test="${!empty nomenclatura.nom_elem}">
-                                        <input type="submit"
-                                               value="<spring:message text="Сохранить изменения"/>"/>
+                                        <%--<input type="submit" value="<spring:message text="Сохранить изменения"/>"/>--%>
+                                        <button type="submit"  class="btn btn-info pull-right">Сохранить изменения</button>
                                     </c:if>
                                     <c:if test="${empty nomenclatura.nom_elem}">
-                                        <input type="submit"
-                                               value="<spring:message text="Сохранить новый элемент"/>"/>
+                                        <%--<input type="submit" value="<spring:message text="Сохранить новый элемент"/>"/>--%>
+                                        <button type="submit"  class="btn btn-info pull-right">Сохранить новый элемент</button>
                                     </c:if>
                                 </td>
                             </tr>
                         </table>
                     </form:form>
+                    </div> <!-- /"box-body"-->
+                </div> <!-- /"box"-->
 <!--КОНЕЦ Добавить элемент------------------------------------------------>
                 </div><!-- /.col -->
             </div><!-- /.row -->
