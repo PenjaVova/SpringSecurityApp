@@ -208,7 +208,7 @@
             <ul class="sidebar-menu">
                 <li class="header">Меню Сайта</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class=""><a href="#"><i class="fa fa-link"></i> <span>Клиенты</span></a></li>
+                <li class=""><a href="${contextPath}/client"><i class="fa fa-link"></i> <span>Клиенты</span></a></li>
                 <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-link"></i> <span>Номенклатура</span></a></li>
 
                 <li class="treeview">
@@ -317,7 +317,7 @@
                                             <td>${nomenclatura.id}</td>
                                             <td>${nomenclatura.nom_gruppa}</td>
                                             <td><a href="<c:url value='/nomenclaturadata/${nomenclatura.id}'/>" target="_blank"> ${nomenclatura.nom_elem}</a></td>
-                                            <td><a href="<c:url value='/nomenclatura/edit/${nomenclatura.id}'/>">изменить</a></td>
+                                            <td><a href="<c:url value='/edit/${nomenclatura.id}'/>">изменить</a></td>
                                             <td><a href="<c:url value='/nomenclatura/remove/${nomenclatura.id}'/>">удалить</a></td>
                                         </tr>
                                     </c:forEach>
@@ -382,11 +382,11 @@
                                 <td colspan="2">
                                     <c:if test="${!empty nomenclatura.nom_elem}">
                                         <input type="submit"
-                                               value="<spring:message text="Edit Nomenclatura"/>"/>
+                                               value="<spring:message text="Сохранить изменения"/>"/>
                                     </c:if>
                                     <c:if test="${empty nomenclatura.nom_elem}">
                                         <input type="submit"
-                                               value="<spring:message text="Add Nomenclatura"/>"/>
+                                               value="<spring:message text="Сохранить новый элемент"/>"/>
                                     </c:if>
                                 </td>
                             </tr>
