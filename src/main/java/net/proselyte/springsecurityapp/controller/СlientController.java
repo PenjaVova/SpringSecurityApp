@@ -1,9 +1,14 @@
 package net.proselyte.springsecurityapp.controller;
 
+import net.proselyte.springsecurityapp.dao.ClientDao;
 import net.proselyte.springsecurityapp.model.Client;
 import net.proselyte.springsecurityapp.service.ClientService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -38,6 +43,12 @@ public class СlientController {
         } else {
             this.clientService.updateClient(client);
         }
+//отсебя
+         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+         String username = auth.getName();
+        final Logger logger = LoggerFactory.getLogger(СlientController.class);
+        logger.info("Sotrudnik " +username+ " client successfully saved. client details: " + client);
+//конец от себя
         return "redirect:/client";
     }
 

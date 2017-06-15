@@ -1,5 +1,6 @@
 package net.proselyte.springsecurityapp.dao;
 
+import jdk.nashorn.internal.runtime.Context;
 import net.proselyte.springsecurityapp.model.Client;
 import net.proselyte.springsecurityapp.model.User;
 import org.hibernate.Session;
@@ -7,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,14 +26,7 @@ public class ClientDaoImpl implements ClientDao {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-//// от себя: создал юзера чтобы логировать его действия с клиентом
-//
-//    private User user;
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-////    конец от себя
+
 
     @Override //добавить клиента
     public void addClient(Client client) {
@@ -44,7 +40,7 @@ public class ClientDaoImpl implements ClientDao {
     public void updateClient(Client client) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(client);
-        //logger.info("RAB " + user.getUsername() + " updated client, details: " + client); // вытаскиваю
+        //logger.info("RAB " + username + " updated client, details: " + client); // вытаскиваю
         logger.info(" updated client, details: " + client); // вытаскиваю
 
     }
