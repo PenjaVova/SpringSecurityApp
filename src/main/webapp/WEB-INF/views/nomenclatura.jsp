@@ -358,6 +358,7 @@
                     <c:url var="addAction" value="/nomenclatura/add"/>
                     <div class="box-body">
                     <form:form action="${addAction}" commandName="nomenclatura">
+                        <div class="form-group">
                         <table>
                             <c:if test="${!empty nomenclatura.nom_elem}">
 
@@ -442,6 +443,7 @@
                             </tr>
                         </table>
                     </form:form>
+                        </div> <%--class="form-group"--%>
                     </div> <!-- /"box-body"-->
                 </div> <!-- /"box"-->
 <!--КОНЕЦ Добавить элемент------------------------------------------------>
