@@ -29,7 +29,7 @@
     <!-- Main Header -->
     <header class="main-header">
         <!-- Logo -->
-        <a href="/${contextPath}/welcome.jsp" class="logo">
+        <a href="${contextPath}/welcome" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>MK</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -209,8 +209,8 @@
             <ul class="sidebar-menu">
                 <li class="header">Меню Сайта</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class=""><a href="${contextPath}/client"><i class="fa fa-link"></i> <span>Клиенты</span></a></li>
-                <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-link"></i> <span>Номенклатура</span></a></li>
+                <li class=""><a href="${contextPath}/client"><i class="fa  fa-meh-o"></i> <span>Клиенты</span></a></li>
+                <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-navicon"></i> <span>Номенклатура</span></a></li>
 
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Заказы</span>
@@ -318,8 +318,11 @@
                                             <td>${nomenclatura.id}</td>
                                             <td>${nomenclatura.nom_gruppa}</td>
                                             <td><a href="<c:url value='/nomenclaturadata/${nomenclatura.id}'/>" target="_blank"> ${nomenclatura.nom_elem}</a></td>
-                                            <td><a href="<c:url value='/nomenclatura/edit/${nomenclatura.id}'/>">изменить</a></td>
-                                            <td><a href="<c:url value='/nomenclatura/remove/${nomenclatura.id}'/>">удалить</a></td>
+                                            <td><a href="<c:url value='/nomenclatura/edit/${nomenclatura.id}'/>">Изменить</a></td>
+                                            <td><a href="<c:url value='/nomenclatura/remove/${nomenclatura.id}'/>">
+                                                    <i class="fa fa-trash" title="удалить"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -355,59 +358,45 @@
                                 <i class="fa fa-times"></i></button>
                         </div>
                     </div>
+
                     <c:url var="addAction" value="/nomenclatura/add"/>
                     <div class="box-body">
                     <form:form action="${addAction}" commandName="nomenclatura">
-                        <div class="form-group">
-                        <table>
                             <c:if test="${!empty nomenclatura.nom_elem}">
-
-                                <%--<div class="form-horizontal">--%>
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="nom_elem" class="col-sm-2 control-label">--%>
-                                            <%--<form:label path="id">--%>
-                                                <%--<spring:message text="ID"/>--%>
-                                            <%--</form:label></label>--%>
-
-                                        <%--<div class="col-sm-10">--%>
-                                            <%--<form:input path="id" readonly="true" disabled="true" class="form-control" type="text" />--%>
-                                            <%--<form:hidden path="id" class="form-control" type="text" />--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                                <tr>
-                                    <td>
-                                        <form:label path="id">
-                                            <spring:message text="ID"/>
-                                        </form:label>
-                                    </td>
-                                    <td>
-                                        <form:input path="id" readonly="true" size="8" disabled="true"/>
-                                        <form:hidden path="id"/>
-                                    </td>
-                                </tr>
-                            </c:if>
 
                             <div class="form-horizontal">
                             <div class="form-group">
-                                <label for="nom_elem" class="col-sm-2 control-label">Группа материалов</label>
-
+                                <label class="col-sm-2 control-label"  path="id">ID</label>
                                 <div class="col-sm-10">
-                                    <form:input path="nom_gruppa" placeholder="начните вводить материал" class="form-control" type="text" />
+                                    <form:input path="id" readonly="true" class="form-control"  disabled="true"/>
+                                    <form:hidden path="id"/>
                                 </div>
                             </div>
                             </div>
-                            <%--<tr>--%>
-                                <%--<td>--%>
-                                    <%--<form:label path="nom_gruppa">--%>
-                                        <%--<spring:message text="Группа материалов"/>--%>
-                                    <%--</form:label>--%>
-                                <%--</td>--%>
-                                <%--<td>--%>
-                                    <%--<form:input path="nom_gruppa"/>--%>
-                                <%--</td>--%>
-                            <%--</tr>--%>
-<%----------------------------------------------------------%>
+                            </c:if>
+<%--nom_gruppa--------------------------------------------------------%>
+                            <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="nom_gruppa" class="col-sm-2 control-label">Группа материалов</label>
+
+                                <div class="col-sm-10">
+                                    <form:select path="nom_gruppa" class="form-control" >
+                                        <form:option value="Грунты, краски"></form:option>
+                                        <form:option value="Кабельная продукция"></form:option>
+                                        <form:option value="МБП малярный"></form:option>
+                                        <form:option value="МБП производство"></form:option>
+                                        <form:option value="Металл"></form:option>
+                                        <form:option value="Метизы"></form:option>
+                                        <form:option value="Расходники к инструменту"></form:option>
+                                        <form:option value="Расходные материалы"></form:option>
+                                        <form:option value="Труба"></form:option>
+                                        <form:option value="Элементы"></form:option>
+                                        <form:option value="Прочие"></form:option>
+                                    </form:select>
+                                </div>
+                            </div>
+                            </div>
+<%--nom_elem--------------------------------------------------------%>
                             <div class="form-horizontal">
                                 <div class="form-group">
                                     <label for="nom_elem" class="col-sm-2 control-label">Наименование</label>
@@ -417,33 +406,17 @@
                                     </div>
                                 </div>
                             </div>
-<%----------------------------------------------------------%>
-                            <%--<tr>--%>
-                                <%--<td>--%>
-                                    <%--<form:label path="nom_elem">--%>
-                                        <%--<spring:message text="Наименование"/>--%>
-                                    <%--</form:label>--%>
-                                <%--</td>--%>
-                                <%--<td>--%>
-                                    <%--<form:input path="nom_elem"/>--%>
-                                <%--</td>--%>
-                            <%--</tr>--%>
-
-                            <tr>
-                                <td colspan="2">
+<%--submit--------------------------------------------------------%>
+                                <div colspan="2">
                                     <c:if test="${!empty nomenclatura.nom_elem}">
-                                        <%--<input type="submit" value="<spring:message text="Сохранить изменения"/>"/>--%>
                                         <button type="submit"  class="btn btn-info pull-right">Сохранить изменения</button>
                                     </c:if>
                                     <c:if test="${empty nomenclatura.nom_elem}">
-                                        <%--<input type="submit" value="<spring:message text="Сохранить новый элемент"/>"/>--%>
                                         <button type="submit"  class="btn btn-info pull-right">Сохранить новый элемент</button>
                                     </c:if>
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
+<%----------------------------------------------------------%>
                     </form:form>
-                        </div> <%--class="form-group"--%>
                     </div> <!-- /"box-body"-->
                 </div> <!-- /"box"-->
 <!--КОНЕЦ Добавить элемент------------------------------------------------>

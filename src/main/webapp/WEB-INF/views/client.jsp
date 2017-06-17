@@ -28,7 +28,7 @@
     <!-- Main Header -->
     <header class="main-header">
         <!-- Logo -->
-        <a href="/${contextPath}/welcome.jsp" class="logo">
+        <a href="${contextPath}/welcome" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>MK</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -208,8 +208,8 @@
             <ul class="sidebar-menu">
                 <li class="header">Меню Сайта</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class=""><a href="${contextPath}/client"><i class="fa fa-link"></i> <span>Клиенты</span></a></li>
-                <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-link"></i> <span>Номенклатура</span></a></li>
+                <li class=""><a href="${contextPath}/client"><i class="fa  fa-meh-o"></i> <span>Клиенты</span></a></li>
+                <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-navicon"></i> <span>Номенклатура</span></a></li>
 
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Заказы</span>

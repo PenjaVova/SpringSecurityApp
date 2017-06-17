@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>nomenclaturaDATA</title>
+    <title>Материал</title>
 
     <style type="text/css">
         .tg {
@@ -49,13 +49,13 @@
 
 </head>
 <body>
-<h1>Book Details</h1>
+<h1>Материал</h1>
 
 <table class="tg">
     <tr>
         <th width="80">id</th>
-        <th width="120">nom_gruppa</th>
-        <th width="120">nom_elem</th>
+        <th width="120">Группа материалов</th>
+        <th width="120">Наименование</th>
     </tr>
     <tr>
         <td>${nomenclatura.id}</td>
