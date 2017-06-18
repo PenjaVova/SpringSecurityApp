@@ -274,8 +274,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Номенклатура
-                <small>Справочник мариалов</small>
+                Клиенты
+                <small>...</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -290,7 +290,7 @@
                     <!------------------------------------------------------>
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Список элементов</h3>
+                            <h3 class="box-title">Список клиентов</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Свернуть">
                                     <i class="fa fa-minus"></i></button>
@@ -354,122 +354,143 @@
                             <!-- КОНЕЦ Основная таблица -->
                         </c:if>
                     </div><!-- /.box -->
-                    <!--Добавить элемент---------------------------------------------------->
-
-                    <h1>Add a client</h1>
+<!--Добавить клиента---------------------------------------------------->
+                    <div class="box">
+                        <div class="box-header">
+                            <!--box-title-->
+                            <c:if test="${!empty client.fio}">
+                                <h3 class="box-title">Изменить данные по клиенту</h3>
+                            </c:if>
+                            <c:if test="${empty client.fio}">
+                                <h3 class="box-title">Добавить нового клиента</h3>
+                            </c:if>
+                            <!--/box-title-->
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Свернуть">
+                                    <i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Скрыть">
+                                    <i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
 
                     <c:url var="addAction" value="/client/add"/>
-
+                        <div class="box-body">
                     <form:form action="${addAction}" commandName="client">
-                        <table>
-                            <c:if test="${!empty client.fio}">
-                                <tr>
-                                    <td>
-                                        <form:label path="id">
-                                            <spring:message text="ID"/>
-                                        </form:label>
-                                    </td>
-                                    <td>
-                                        <form:input path="id" readonly="true" size="8" disabled="true"/>
+                        <%--<table>--%>
+<%--1 id--%>
+                        <c:if test="${!empty client.fio}">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"  path="id">ID</label>
+                                    <div class="col-sm-2">
+                                        <form:input path="id" readonly="true" class="form-control"  disabled="true"/>
                                         <form:hidden path="id"/>
-                                    </td>
-                                </tr>
-                            </c:if>
-<%--2 fio--%>                <tr>
-                                <td>
-                                    <form:label path="fio">
-                                        <spring:message text="fio"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="fio"/>
-                                </td>
-                            </tr>
-<%--3 phone--%>             <tr>
-                                <td>
-                                    <form:label path="phone">
-                                        <spring:message text="phone"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="phone"/>
-                                </td>
-                            </tr>
-<%--4 inn--%>               <tr>
-                                <td>
-                                    <form:label path="inn">
-                                        <spring:message text="inn"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="inn"/>
-                                </td>
-                            </tr>
-<%--5 fiz_ur--%>             <tr>
-                                <td>
-                                    <form:label path="fiz_ur">
-                                        <spring:message text="fiz_ur"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="fiz_ur"/>
-                                </td>
-                            </tr>
-<%--6 acc--%>                <tr>
-                                <td>
-                                    <form:label path="acc">
-                                        <spring:message text="acc"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="acc"/>
-                                </td>
-                            </tr>
-<%--7 pasp--%>               <tr>
-                                <td>
-                                    <form:label path="pasp">
-                                        <spring:message text="pasp"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="pasp"/>
-                                </td>
-                            </tr>
-<%--8 addr--%>               <tr>
-                                <td>
-                                    <form:label path="addr">
-                                        <spring:message text="addr"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="addr"/>
-                                </td>
-                            </tr>
-<%--9 koment--%>               <tr>
-                                <td>
-                                    <form:label path="koment">
-                                        <spring:message text="koment"/>
-                                    </form:label>
-                                </td>
-                                <td>
-                                    <form:input path="koment"/>
-                                </td>
-                            </tr>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+<%--2 fio--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="fio" class="col-sm-2 control-label">ФИО клиента</label>
 
-                            <tr>
-                                <td colspan="2">
-                                    <c:if test="${!empty client.fio}">
-                                        <input type="submit"
-                                               value="<spring:message text="Edit KLIENT"/>"/>
-                                    </c:if>
-                                    <c:if test="${empty client.fio}">
-                                        <input type="submit"
-                                               value="<spring:message text="Add KLIENT"/>"/>
-                                    </c:if>
-                                </td>
-                            </tr>
-                        </table>
+                                <div class="col-sm-10">
+                                    <form:input path="fio" placeholder="Введите полное ФИО клиента" class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+<%--3 phone--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="phone" class="col-sm-2 control-label">№ телефона</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="phone" placeholder="Введите телефон клиента" class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+<%--4 inn--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inn" class="col-sm-2 control-label">ИНН</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="inn" placeholder="Идентификационный налоговый номер / ОКПО" class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+
+<%--5 fiz_ur--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="fiz_ur" class="col-sm-2 control-label">Форма собственности</label>
+
+                                <div class="col-sm-10">
+                                    <form:select path="fiz_ur" class="form-control" >
+                                        <form:option value="ФИЗ" >Физическое лицо</form:option>
+                                        <form:option value="ЮР">Юридическое лицо</form:option>
+                                        <form:option value="ЧП">Частный предприниматель</form:option>
+                                    </form:select>
+                                </div>
+                            </div>
+                        </div>
+<%--6 acc--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="acc" class="col-sm-2 control-label">Расчетный счет</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="acc" placeholder="платежные реквизиты" class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+<%--7 pasp--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="pasp" class="col-sm-2 control-label">Паспортные данные</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="pasp" placeholder="Паспортные данные" class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+<%--8 addr--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="addr" class="col-sm-2 control-label">Адрес</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="addr" placeholder="Адрес" class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+
+<%--9 koment--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="koment" class="col-sm-2 control-label">Комментарий</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="koment" placeholder="..." class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+<%--submit--------------------------------------------------------%>
+                        <div colspan="2">
+                            <c:if test="${!empty client.fio}">
+                                <button type="submit"  class="btn btn-info pull-right">Сохранить изменения</button>
+                            </c:if>
+                            <c:if test="${empty client.fio}">
+                                <button type="submit"  class="btn btn-info pull-right">Сохранить нового клиента</button>
+                            </c:if>
+                        </div>
+<%----------------------------------------------------------%>
                     </form:form>
+                        </div><!--box-body-->
+                </div><!--box-->
                     <!--КОНЕЦ Добавить элемент------------------------------------------------>
                 </div><!-- /.col -->
             </div><!-- /.row -->

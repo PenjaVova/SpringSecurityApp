@@ -62,7 +62,7 @@ public class NomenclaturaDaoImpl implements NomenclaturaDao{
     @SuppressWarnings("unchecked")
     public List<Nomenclatura> listNomenclatura() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Nomenclatura> nomenclaturaList = session.createQuery("from Nomenclatura").list();//:TODO nomenclatura добавить BEAN в XML
+        List<Nomenclatura> nomenclaturaList = session.createQuery("from Nomenclatura").list();
        /* for(Nomenclatura nomenclatura: listNomenclatura()){
         logger.info("Book list: " + nomenclaturaList);
         }*/
