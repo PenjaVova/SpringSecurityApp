@@ -1,5 +1,9 @@
 package net.proselyte.springsecurityapp.controller.autocomplete;
 
+import net.proselyte.springsecurityapp.model.Nomenclatura;
+import net.proselyte.springsecurityapp.service.NomenclaturaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,9 +16,12 @@ import java.util.List;
 @Controller
 public class AutocompleteNomenclatura {
 
-    List<Tag> data = new ArrayList<Tag>();
+    private List<Tag> data = new ArrayList<>();
+
 
     AutocompleteNomenclatura() {
+
+
         // init data for testing
         data.add(new Tag(1, "ruby"));
         data.add(new Tag(2, "rails"));
