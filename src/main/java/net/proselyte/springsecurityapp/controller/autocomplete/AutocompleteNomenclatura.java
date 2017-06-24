@@ -5,6 +5,7 @@ import net.proselyte.springsecurityapp.service.NomenclaturaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,30 +19,26 @@ public class AutocompleteNomenclatura {
 
     private List<Tag> data = new ArrayList<>();
 
+    private NomenclaturaService nomenclaturaService;
 
-    AutocompleteNomenclatura() {
-
-
-        // init data for testing
-        data.add(new Tag(1, "ruby"));
-        data.add(new Tag(2, "rails"));
-        data.add(new Tag(3, "c / c++"));
-        data.add(new Tag(4, ".net"));
-        data.add(new Tag(5, "python"));
-        data.add(new Tag(6, "java"));
-        data.add(new Tag(7, "javascript"));
-        data.add(new Tag(8, "jscript"));
-
+    @Autowired(required = true)
+    @Qualifier(value = "nomenclaturaService")
+    public void setNomenclaturaService(NomenclaturaService nomenclaturaService) {
+        this.nomenclaturaService = nomenclaturaService;
     }
 
+//-------------------------------------------------------------------------------
     @RequestMapping(value = "/AutocompleteNomenclatura", method = RequestMethod.GET)
-    public ModelAndView getPages() {
-
-        ModelAndView model = new ModelAndView("AutocompleteNomenclatura");
-        return model;
-
+    public String aaa(Model model) {
+        List<Nomenclatura> nomenclaturaList = this.nomenclaturaService.listNomenclatura();
+        for (Nomenclatura anomenclaturaList: nomenclaturaList) {
+            data.add(new Tag(anomenclaturaList.getId(),anomenclaturaList.getNom_elem()));
+        }
+        model.addAttribute("nomenclatura",new Nomenclatura());
+        model.addAttribute("nomenclaturaList", nomenclaturaList);
+        return "AutocompleteNomenclatura";
     }
-
+//-------------------------------------------------------------------------------
     @RequestMapping(value = "/getTags", method = RequestMethod.GET)
     public @ResponseBody
     List<Tag> getTags(@RequestParam String tagName) {
@@ -49,7 +46,7 @@ public class AutocompleteNomenclatura {
         return simulateSearchResult(tagName);
 
     }
-
+//-------------------------------------------------------------------------------
     private List<Tag> simulateSearchResult(String tagName) {
 
         List<Tag> result = new ArrayList<Tag>();
