@@ -17,9 +17,9 @@ import java.util.List;
 @Controller
 public class AutocompleteNomenclatura {
 
-    private List<Tag> data = new ArrayList<>();
+    private List<Tag> data = new ArrayList<>();// сюда заливаю лист номернклатуры
 
-    private NomenclaturaService nomenclaturaService;
+    private NomenclaturaService nomenclaturaService; //беру полем, чтобы воспользоваться методом this.nomenclaturaService.listNomenclatura()
 
     @Autowired(required = true)
     @Qualifier(value = "nomenclaturaService")
