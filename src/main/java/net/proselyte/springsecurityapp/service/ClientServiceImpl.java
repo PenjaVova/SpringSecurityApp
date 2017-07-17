@@ -1,6 +1,7 @@
 package net.proselyte.springsecurityapp.service;
 
 import net.proselyte.springsecurityapp.dao.ClientDao;
+import net.proselyte.springsecurityapp.dao.ClientDaoImpl;
 import net.proselyte.springsecurityapp.model.Client;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import java.util.List;
 public class ClientServiceImpl implements ClientService{
 
     private ClientDao clientDao;
+    private ClientDaoImpl zakazPreCalcDao;
 
     public void setClientDao (ClientDao clientDao){
         this.clientDao = clientDao;
@@ -48,5 +50,16 @@ public class ClientServiceImpl implements ClientService{
     @Transactional
     public List<Client> listClient() {
         return this.clientDao.listClient();
+    }
+
+    public void setZakazPreCalcDao(ClientDaoImpl zakazPreCalcDao) {
+        this.zakazPreCalcDao = zakazPreCalcDao;
+    }
+
+    public ClientDaoImpl getZakazPreCalcDao() {
+        return zakazPreCalcDao;
+    }
+
+    public void setZakazMaterialsDao(ClientDaoImpl zakazMaterialsDao) {
     }
 }

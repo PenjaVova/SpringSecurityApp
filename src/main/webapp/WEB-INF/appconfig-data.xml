@@ -3,6 +3,7 @@
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/data/jpa
@@ -50,6 +51,10 @@
                 <value>net.proselyte.springsecurityapp.model.Role</value>
                 <value>net.proselyte.springsecurityapp.model.Nomenclatura</value>
                 <value>net.proselyte.springsecurityapp.model.Client</value>
+                <value>net.proselyte.springsecurityapp.model.Zakaz</value>
+                <value>net.proselyte.springsecurityapp.model.ZakazPosition</value>
+                <value>net.proselyte.springsecurityapp.model.ZakazPreCalc</value>
+                <value>net.proselyte.springsecurityapp.model.ZakazMaterials</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -80,6 +85,33 @@
     <bean id="clientService" class="net.proselyte.springsecurityapp.service.ClientServiceImpl">
         <property name="clientDao" ref="clientDao"/>
     </bean>
+
+     <!--Zakaz-->
+    <bean id="zakazDao" class="net.proselyte.springsecurityapp.dao.ZakazPreCalcDaoImpl"
+          p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="zakazService" class="net.proselyte.springsecurityapp.service.ZakazServiceImpl"
+          p:zakazDao-ref="zakazDaoImpl"/>
+
+    <!--ZakazPosition-->
+    <bean id="zakazPositionDao" class="net.proselyte.springsecurityapp.dao.ZakazPreCalcDaoImpl"
+          p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="zakazPositionService" class="net.proselyte.springsecurityapp.service.ZakazServiceImpl"
+          p:zakazPositionDao-ref="zakazPositionDaoImpl"/>
+
+    <!--zakazPreCalc-->
+    <bean id="zakazPreCalcDao" class="net.proselyte.springsecurityapp.dao.ClientDaoImpl"
+          p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="zakazPreCalcService" class="net.proselyte.springsecurityapp.service.ClientServiceImpl"
+          p:zakazPreCalcDao-ref="zakazPreCalcDao"/>
+
+    <!--zakazMaterials-->
+    <bean id="zakazMaterialsDao" class="net.proselyte.springsecurityapp.dao.ClientDaoImpl"
+          p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="zakazMaterialsService" class="net.proselyte.springsecurityapp.service.ClientServiceImpl"
+          p:zakazMaterialsDao-ref="zakazMaterialsDao"/>
+
+
+
 
     <tx:annotation-driven/>
 

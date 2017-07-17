@@ -4,11 +4,7 @@ import net.proselyte.springsecurityapp.model.ZakazPreCalc;
 
 import java.util.List;
 
-/**
- * Created by Vova on 30.06.2017.
- */
 public interface ZakazPreCalcDao {
-
     public void addZakazPreCalc(ZakazPreCalc zakazPreCalc);
 
     public void updateZakazPreCalc(ZakazPreCalc zakazPreCalc);
@@ -17,5 +13,5 @@ public interface ZakazPreCalcDao {
 
     public ZakazPreCalc getZakazPreCalcById(int id);
 
-    public List<ZakazPreCalc> listZakazPreCalc();
+    public List<ZakazPreCalc> zakazPreCalcList();
 }
