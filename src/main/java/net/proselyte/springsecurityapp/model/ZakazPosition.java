@@ -37,7 +37,7 @@ public class ZakazPosition {
     @Column(name = "users_username")  private String users_username;
 //------------------------------------------------------------
     @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
-    @JoinColumn(name = "zakaz_pre_calc_id")
+    @JoinColumn(name = "position_id")
     private List<ZakazPreCalc> preCalcList;
 //------------------------------------------------------------
     @Column(name = "positionState")   private String positionState;

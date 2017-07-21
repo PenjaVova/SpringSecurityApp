@@ -13,6 +13,7 @@ import java.util.List;
 public class ZakazMaterialsDaoImpl implements ZakazMaterialsDao {
     private static final Logger logger = LoggerFactory.getLogger(ClientDao.class);
     private SessionFactory sessionFactory;
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -49,7 +50,7 @@ public class ZakazMaterialsDaoImpl implements ZakazMaterialsDao {
     @SuppressWarnings("unchecked")
     public List<ZakazMaterials> zakazMaterialsList() {
             Session session = this.sessionFactory.getCurrentSession();
-            List<ZakazMaterials> zakazMaterialsList = session.createQuery("from zakaz_materials").list();
+            List<ZakazMaterials> zakazMaterialsList = session.createQuery("from ZakazMaterials").list();
             return zakazMaterialsList;
 
     }

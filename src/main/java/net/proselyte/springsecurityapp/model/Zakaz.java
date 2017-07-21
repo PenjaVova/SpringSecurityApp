@@ -61,6 +61,31 @@ public class Zakaz {
     @Column(name = "coment")
     private String coment;
 
+    /*--------------------------------------------------------------------------------------------------------------
+todo 274 Глава 6. Управление постоянными объектами
+@PostLoad
+@PostPersist
+@PostUpdate
+    @Transient
+    private String Position_names;
+
+    public String getPosition_names() {
+        return Position_names;
+    }
+
+    public void setPosition_names(String position_names) {
+        Position_names = position_names;
+    }
+    @PostLoad
+    @PostPersist
+    @PostUpdate
+    private void pos_name(){
+        if (this) {}
+
+    }
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
     public Zakaz(){}  //Конструктор без парамтров
 
     public int getId() {

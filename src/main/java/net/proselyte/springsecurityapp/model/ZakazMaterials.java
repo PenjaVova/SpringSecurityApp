@@ -27,4 +27,52 @@ public class ZakazMaterials {
 
     @Column(name = "zakaz_pre_calc_id")
     private int zakaz_pre_calc_id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom_elem() {
+        return nom_elem;
+    }
+
+    public void setNom_elem(String nom_elem) {
+        this.nom_elem = nom_elem;
+    }
+
+    public String getEdinIzmer() {
+        return edinIzmer;
+    }
+
+    public void setEdinIzmer(String edinIzmer) {
+        this.edinIzmer = edinIzmer;
+    }
+
+    public Float getMaterialCount() {
+        return materialCount;
+    }
+
+    public void setMaterialCount(Float materialCount) {
+        this.materialCount = materialCount;
+    }
+
+    public Float getMaterialCost() {
+        return materialCost;
+    }
+
+    public void setMaterialCost(Float materialCost) {
+        this.materialCost = materialCost;
+    }
+
+    public int getZakaz_pre_calc_id() {
+        return zakaz_pre_calc_id;
+    }
+
+    public void setZakaz_pre_calc_id(int zakaz_pre_calc_id) {
+        this.zakaz_pre_calc_id = zakaz_pre_calc_id;
+    }
 }

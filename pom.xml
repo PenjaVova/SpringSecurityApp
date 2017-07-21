@@ -22,9 +22,23 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <jackson.version>2.9.0.pr3</jackson.version>
+    <joda-time.version>2.9.9</joda-time.version>
+      <jadira.usertype.version>3.0.0.GA</jadira.usertype.version>
   </properties>
 
   <dependencies>
+      <!--ДЛя работы с датой Книга Spring 4 для профф-лов стр 640-->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${joda-time.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jadira.usertype</groupId>
+      <artifactId>usertype.core</artifactId>
+      <version>${jadira.usertype.version}</version>
+    </dependency>
+    <!--конец для работы с датой Книга Spring 4 для профф-лов стр 640-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
@@ -98,19 +112,18 @@
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
     </dependency>
-  <!-- Need this for json to/from object -->
-  <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-core</artifactId>
-    <version>${jackson.version}</version>
-  </dependency>
-
-  <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>${jackson.version}</version>
-  </dependency>
-
+    <!-- Need this for json to/from object -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <!-- КОНЕЦ Need this for json to/from object -->
  </dependencies>
   <build>
     <finalName>SpringSecurityApp</finalName>

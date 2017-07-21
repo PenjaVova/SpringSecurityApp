@@ -16,8 +16,12 @@ import java.util.List;
 public class ZakazDaoImpl implements ZakazDao {
 
     private static final Logger logger = LoggerFactory.getLogger(ZakazDao.class);
+
     private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) {this.sessionFactory = sessionFactory;}
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override //СОХРАНИТЬ
     public void addZakaz(Zakaz zakaz) {

@@ -49,7 +49,7 @@ public class ZakazPreCalcDaoImpl implements ZakazPreCalcDao {
     @SuppressWarnings("unchecked")
     public List<ZakazPreCalc> zakazPreCalcList() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<ZakazPreCalc> zakazPreCalcList= session.createQuery("from zakaz_pre_calc").list();
+        List<ZakazPreCalc> zakazPreCalcList= session.createQuery("from ZakazPreCalc").list();
 
             return zakazPreCalcList;
 

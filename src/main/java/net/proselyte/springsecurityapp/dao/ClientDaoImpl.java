@@ -33,7 +33,6 @@ public class ClientDaoImpl implements ClientDao {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(client);
         logger.info("client successfully saved. client details: " + client);
-
     }
 
     @Override //обновить клиента

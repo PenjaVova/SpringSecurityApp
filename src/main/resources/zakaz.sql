@@ -75,6 +75,32 @@ FOREIGN KEY (zakaz_pre_calc_id) REFERENCES zakaz_pre_calc (id)
 ENGINE = InnoDB;
 
 
+/*-----------------------------------------------*/
+INSERT INTO zakaz VALUES (1,1,"Михальченко Константин Николаевич","2017-07-01","2017-07-04",NULL ,DEFAULT,"В РАБОТЕ Проектанта",10000,5000,NULL ,"ВОВА","тестовый комент");
+INSERT INTO zakaz VALUES (2,2,"Пак Светлана-Ирсеновна","2017-05-10","2017-06-10",NULL ,DEFAULT,"В РАБОТЕ Проектанта",10000,5000,NULL ,"ВОВА","тестовый комент");
+/*-----------------------------------------------*/
+INSERT into zakaz_position values (1,1,"Перила","Дверь","м",5,"2017-06-10","2017-06-11",NULL ,1,"vova","Новый",DEFAULT ,NULL ,NULL ,"тестовая позиция");
+INSERT into zakaz_position values (2,1,"Решетки","Дверь","м2",2,"2017-06-10","2017-06-11",NULL ,1,"vova","Новый",DEFAULT ,NULL ,NULL ,"тестовая позиция");
+INSERT into zakaz_position values (3,2,"Светильник","Дверь","шт",2,"2017-06-10","2017-06-11",NULL ,1,"vova","Новый",DEFAULT ,NULL ,NULL ,"тестовая позиция");
+INSERT into zakaz_position values (4,2,"Мангал","Дверь","шт",7,"2017-06-10","2017-06-11",NULL ,1,"vova","Новый",DEFAULT ,NULL ,NULL ,"тестовая позиция");
+/*-----------------------------------------------*/
+INSERT into zakaz_pre_calc VALUES (1,1,"vova","Новый","2017-06-10","2017-06-10",NULL ,NULL ,"N",NULL);
+INSERT into zakaz_pre_calc VALUES (2,2,"vova","Новый","2017-06-10","2017-06-10",NULL ,NULL ,"N",NULL);
+INSERT into zakaz_pre_calc VALUES (3,3,"vova","Новый","2017-06-10","2017-06-10",NULL ,NULL ,"N",NULL);
+INSERT into zakaz_pre_calc VALUES (4,4,"vova","Новый","2017-06-10","2017-06-10",NULL ,NULL ,"N",NULL);
+/*-----------------------------------------------*/
+INSERT into zakaz_materials VALUES (1,"лист","м2",0.5,NULL ,1);
+INSERT into zakaz_materials VALUES (2,"уголок","м",10,NULL ,1);
+INSERT into zakaz_materials VALUES (3,"прут квадратный","м",7,NULL ,2);
+INSERT into zakaz_materials VALUES (4,"прут кругдый","м",7,NULL ,2);
+INSERT into zakaz_materials VALUES (5,"болтики","шт",44,NULL ,3);
+INSERT into zakaz_materials VALUES (6,"Лампочки","шт",44,NULL ,3);
+INSERT into zakaz_materials VALUES (7,"ножки","шт",4,NULL ,4);
+INSERT into zakaz_materials VALUES (8,"короб","шт",4,NULL ,4);
 
 
 
+SELECT * FROM zakaz
+SELECT * FROM zakaz_position
+SELECT * FROM  zakaz_pre_calc
+SELECT * FROM  zakaz_materials
