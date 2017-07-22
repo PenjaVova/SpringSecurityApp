@@ -8,7 +8,7 @@
 
 <html>
 <head>
-    <title>zakaz</title>
+    <title>Заказы</title>
 </head>
 <body>
 <h1>Заказы</h1>
@@ -20,6 +20,7 @@
             <tr>
                 <th>ID</th>
                 <th>ФИО клиента</th>
+                <th>Позиции заказа</th>
                 <th>Дата получения заказа</th>
                 <th>Дата изменения заказа</th>
                 <th>Статус заказа</th>
@@ -36,6 +37,7 @@
                 <tr>
                     <td>${zakazList.id}</td>
                     <td>${zakazList.clients_FIO}</td>
+                    <td>${zakazList.str_position_name}</td>
                     <td>${zakazList.dateStartZ}</td>
                     <td>${zakazList.dateChangeZ}</td>
                     <td>${zakazList.zakazState}</td>

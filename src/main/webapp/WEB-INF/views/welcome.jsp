@@ -211,9 +211,7 @@
             </span>
                 </a>
                 <ul style="display: none;" class="treeview-menu">
-                    <li>
-                        <a href="${contextPath}/client"><i class="fa  fa-meh-o"></i></a>
-                    </li>
+                    <li class=""><a href="${contextPath}/zakaz"><i class="fa fa-cirle"></i> <span>Заказы</span></a></li>
                     <li><a href="#">Добавить новый заказ</a></li>
                 </ul>
             </li>

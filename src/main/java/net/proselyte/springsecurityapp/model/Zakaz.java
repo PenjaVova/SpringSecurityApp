@@ -1,10 +1,7 @@
 package net.proselyte.springsecurityapp.model;
 
-import org.springframework.context.annotation.Bean;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -61,38 +58,40 @@ public class Zakaz {
     @Column(name = "coment")
     private String coment;
 
-    /*--------------------------------------------------------------------------------------------------------------
-todo 274 Глава 6. Управление постоянными объектами
-@PostLoad
-@PostPersist
-@PostUpdate
+    public String getStr_position_name() {
+
+        make_position_name();
+
+        return str_position_name;
+    }
+
+    public void setStr_position_name(String str_position_name) {
+
+        make_position_name();
+        this.str_position_name = str_position_name;
+    }
+/*--------------------------------------------------------------------------------------------------------------*/
+//todo 274 Глава 6. Управление постоянными объектами !бегаю по листу позиций и вывожу поле str_position_name
     @Transient
-    private String Position_names;
+    public String str_position_name;
 
-    public String getPosition_names() {
-        return Position_names;
-    }
-
-    public void setPosition_names(String position_names) {
-        Position_names = position_names;
-    }
     @PostLoad
     @PostPersist
     @PostUpdate
-    private void pos_name(){
-        if (this) {}
-
+    public void make_position_name() {
+        if (positionList.size() > 0) {
+            str_position_name = "";
+            for (ZakazPosition pos : positionList) {
+                String tmp =  pos.getPositionName() + " " + pos.getMaterialCount() + " " + pos.getEdinIzmer()+ "; ";
+                str_position_name += tmp;
+            }
+        }
     }
-
-/*--------------------------------------------------------------------------------------------------------------*/
-
+    /*--------------------------------------------------------------------------------------------------------------*/
     public Zakaz(){}  //Конструктор без парамтров
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public int  getId()       {return id;}
+    public void setId(int id){
         this.id = id;
     }
 
