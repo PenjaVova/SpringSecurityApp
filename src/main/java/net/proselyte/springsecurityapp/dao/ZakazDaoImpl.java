@@ -25,37 +25,43 @@ public class ZakazDaoImpl implements ZakazDao {
 
     @Override //СОХРАНИТЬ
     public void addZakaz(Zakaz zakaz) {
-        Session session = this.sessionFactory.getCurrentSession();
+        Session session = this.sessionFactory.openSession(); // TODO: 22.07.2017 getCurrentSession() 
         session.persist(zakaz);
+        session.close();// TODO: 22.07.2017 getCurrentSession()
     }
 
     @Override //обновить
     public void updateZakaz(Zakaz zakaz) {
-        Session session = this.sessionFactory.getCurrentSession();
+        Session session = this.sessionFactory.openSession();
         session.update(zakaz);
+        session.close();// TODO: 22.07.2017 getCurrentSession()
     }
 
     @Override  //удалить
     public void removeZakaz(int id) {
-        Session session = this.sessionFactory.getCurrentSession();
-        Zakaz zakaz = (Zakaz) session.load(Zakaz.class,new Integer(id));
+        Session session = this.sessionFactory.openSession();
+        Zakaz zakaz = (Zakaz) session.get(Zakaz.class,new Integer(id));
         if (zakaz!= null){
             session.delete(zakaz);
+            session.close();// TODO: 22.07.2017 getCurrentSession()
         }
     }
 
     @Override
     public Zakaz getZakazById(int id) {
-        Session session = this.sessionFactory.getCurrentSession();
-        Zakaz zakaz = (Zakaz) session.load(Zakaz.class,new Integer(id));
+        Session session = this.sessionFactory.openSession();
+        Zakaz zakaz = (Zakaz) session.get(Zakaz.class,new Integer(id));
+        session.close();// TODO: 22.07.2017 getCurrentSession()
         return zakaz;
+
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public List<Zakaz> zakazList() {
-        Session session = this.sessionFactory.getCurrentSession();
+        Session session = this.sessionFactory.openSession ();
         List<Zakaz> zakazList = session.createQuery("from Zakaz").list();
+        session.close();// TODO: 22.07.2017 getCurrentSession()
         return zakazList;
     }
 }

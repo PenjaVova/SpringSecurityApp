@@ -37,7 +37,7 @@
                 <tr>
                     <td>${zakazList.id}</td>
                     <td>${zakazList.clients_FIO}</td>
-                    <td>${zakazList.str_position_name}</td>
+                    <td><a href="<c:url value='/zakazData/${zakazList.id}'/>" target="_blank"> ${zakazList.str_position_name}</a></td>
                     <td>${zakazList.dateStartZ}</td>
                     <td>${zakazList.dateChangeZ}</td>
                     <td>${zakazList.zakazState}</td>

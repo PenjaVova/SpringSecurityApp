@@ -82,7 +82,7 @@ public class Zakaz {
         if (positionList.size() > 0) {
             str_position_name = "";
             for (ZakazPosition pos : positionList) {
-                String tmp =  pos.getPositionName() + " " + pos.getMaterialCount() + " " + pos.getEdinIzmer()+ "; ";
+                String tmp =  pos.getPositionName() + " " + pos.getMaterialCount() + " " + pos.getEdinIzmer()+ "\n";
                 str_position_name += tmp;
             }
         }

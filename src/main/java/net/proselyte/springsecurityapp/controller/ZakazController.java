@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 /**
@@ -22,12 +23,22 @@ public class ZakazController {
         this.zakazService = zakazService;
     }
 
-    //страница со списком клиентов
+//страница со списком ЗАКАЗОВ
     @RequestMapping(value = "zakaz", method = RequestMethod.GET)
-    public String listNomenclatura (Model model) {
+    public String zakazList (Model model) {
         model.addAttribute("zakaz", new Zakaz());
         model.addAttribute("zakazList",this.zakazService.zakazList());
-
-        return "zakaz"; // TODO: 18.07.2017 написать страницу JSP под заказы
+        return "zakaz";
     }
+//страница со списком ПОЗИЦИЙ по ЗАКАЗУ
+    @RequestMapping ("zakazData/{id}")
+    public String zakazdata (@PathVariable("id") int id, Model model) {
+        model.addAttribute("zakaz", this.zakazService.getZakaz(id));
+        return "zakazData";
+    }
+
+
+
+
+
 }
