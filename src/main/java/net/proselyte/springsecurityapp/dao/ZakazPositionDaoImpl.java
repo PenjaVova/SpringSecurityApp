@@ -42,7 +42,7 @@ public class ZakazPositionDaoImpl implements ZakazPositionDao {
     @Override
     public ZakazPosition getZakazPositionById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        ZakazPosition zakazPosition = (ZakazPosition) session.load(ZakazPosition.class,new Integer(id));
+        ZakazPosition zakazPosition = (ZakazPosition) session.get(ZakazPosition.class,new Integer(id));
         return zakazPosition;
     }
 

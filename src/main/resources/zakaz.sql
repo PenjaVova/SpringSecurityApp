@@ -97,6 +97,7 @@ INSERT into zakaz_materials VALUES (5,"болтики","шт",44,NULL ,3);
 INSERT into zakaz_materials VALUES (6,"Лампочки","шт",44,NULL ,3);
 INSERT into zakaz_materials VALUES (7,"ножки","шт",4,NULL ,4);
 INSERT into zakaz_materials VALUES (8,"короб","шт",4,NULL ,4);
+INSERT into zakaz_materials VALUES (9,"шамрупа","шт",10,NULL ,4);
 
 
 

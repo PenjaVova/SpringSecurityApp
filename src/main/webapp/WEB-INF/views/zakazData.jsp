@@ -22,7 +22,7 @@
         <th>id</th>
         <th>positionName</th>
         <th>dateStartPos</th>
-        <th>dateGotovPos</th>
+        <%--<th>dateGotovPos</th>--%>
         <th>users_username</th>
         <th>positionState</th>
         <th>price
@@ -32,10 +32,14 @@
     </tr>
     <c:forEach items="${zakaz.positionList}" var="positionList">
     <tr>
+
+
+
         <td>${positionList.id}</td>
-        <td>${positionList.positionName}</td>
+        <%--<td>${positionList.positionName}</td>--%>
+        <td><a href="<c:url value='/positionData/${positionList.id}'/>" target="_blank"> ${positionList.positionName}</a></td>
         <td>${positionList.dateStartPos}</td>
-        <td>${positionList.dateGotovPos}</td>
+        <%--<td>${positionList.dateGotovPos}</td>--%>
         <td>${positionList.users_username}</td>
         <td>${positionList.positionState}</td>
         <td>${positionList.price}</td>
