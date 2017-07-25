@@ -3,6 +3,7 @@ package net.proselyte.springsecurityapp.service;
 import net.proselyte.springsecurityapp.model.ZakazPosition;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vova on 16.07.2017.
@@ -16,5 +17,5 @@ public interface ZakazPositionService {
 
     public ZakazPosition getZakazPosition (int id);
 
-    public List<ZakazPosition> zakazPositionListL();
+    public Set<ZakazPosition> zakazPositionListL();
 }

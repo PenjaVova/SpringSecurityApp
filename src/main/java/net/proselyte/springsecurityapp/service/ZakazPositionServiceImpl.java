@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vova on 17.07.2017.
@@ -45,7 +46,7 @@ public class ZakazPositionServiceImpl implements ZakazPositionService{
 
     @Override
     @Transactional
-    public List<ZakazPosition> zakazPositionListL() {
+    public Set<ZakazPosition> zakazPositionListL() {
         return this.zakazPositionDao.ZakazPositionList();
     }
 }

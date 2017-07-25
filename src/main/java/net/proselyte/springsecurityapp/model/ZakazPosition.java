@@ -3,6 +3,7 @@ package net.proselyte.springsecurityapp.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "zakaz_position")
@@ -38,7 +39,7 @@ public class ZakazPosition {
 //------------------------------------------------------------
     @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true) // TODO: 23.07.2017 @OneToMany -> @OneToOne
     @JoinColumn(name = "position_id")
-    private List<ZakazPreCalc> preCalcList;
+    private Set<ZakazPreCalc> preCalcList;
 //------------------------------------------------------------
     @Column(name = "positionState")   private String positionState;
     @Column(name = "price")           private float price;
@@ -124,10 +125,10 @@ public class ZakazPosition {
         this.users_username = users_username;
     }
 
-    public List<ZakazPreCalc> getPreCalcList() {
+    public Set<ZakazPreCalc> getPreCalcList() {
         return preCalcList;
     }
-    public void setPreCalcList(List<ZakazPreCalc> preCalcList) {
+    public void setPreCalcList(Set<ZakazPreCalc> preCalcList) {
         this.preCalcList = preCalcList;
     }
 

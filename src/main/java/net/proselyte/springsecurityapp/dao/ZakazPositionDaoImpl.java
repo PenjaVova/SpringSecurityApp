@@ -7,9 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
- //Created by Vova on 15.07.2017.
+//Created by Vova on 15.07.2017.
 
 @Repository
 public class ZakazPositionDaoImpl implements ZakazPositionDao {
@@ -48,9 +50,10 @@ public class ZakazPositionDaoImpl implements ZakazPositionDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<ZakazPosition> ZakazPositionList() {
+    public Set<ZakazPosition> ZakazPositionList() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<ZakazPosition> zakazPositionList = session.createQuery("from ZakazPosition").list();
+        List<ZakazPosition> zakazPositions = session.createQuery("from ZakazPosition").list();
+        Set<ZakazPosition> zakazPositionList = new HashSet<>(zakazPositions);
         return zakazPositionList;
     }
 }

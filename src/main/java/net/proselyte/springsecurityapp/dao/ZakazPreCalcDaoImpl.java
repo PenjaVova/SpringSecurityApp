@@ -41,7 +41,7 @@ public class ZakazPreCalcDaoImpl implements ZakazPreCalcDao {
     @Override
     public ZakazPreCalc getZakazPreCalcById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        ZakazPreCalc zakazPreCalc = (ZakazPreCalc) session.load(ZakazPreCalc.class, new Integer(id));
+        ZakazPreCalc zakazPreCalc = (ZakazPreCalc) session.get(ZakazPreCalc.class, new Integer(id));
         return zakazPreCalc;
     }
 
@@ -50,7 +50,6 @@ public class ZakazPreCalcDaoImpl implements ZakazPreCalcDao {
     public List<ZakazPreCalc> zakazPreCalcList() {
         Session session = this.sessionFactory.getCurrentSession();
         List<ZakazPreCalc> zakazPreCalcList= session.createQuery("from ZakazPreCalc").list();
-
             return zakazPreCalcList;
 
     }
