@@ -57,7 +57,6 @@ public class AutocompleteNomenclatura {
                 result.add(tag);
             }
         }
-
         return result;
     }
 

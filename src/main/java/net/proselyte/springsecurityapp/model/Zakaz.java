@@ -1,5 +1,7 @@
 package net.proselyte.springsecurityapp.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -25,19 +27,23 @@ public class Zakaz {
     private List<ZakazPosition> positionList;
 
     @Column(name = "dateStartZ")
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateStartZ;
 
     @Column(name = "dateChangeZ")
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateChangeZ; // TODO: 28.06.2017 фотмат поля может быть нужно поменять на SimpleDateFormat или DateFormat
 
     @Column(name = "dateGotovZ")
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateGotovZ;
 
     @Column(name = "dateCloseZ")
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateCloseZ;
 
     @Column(name = "zakazState")

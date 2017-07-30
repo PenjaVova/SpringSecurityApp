@@ -39,12 +39,11 @@
                 return {
                     //must convert json to javascript object before process
                     suggestions: $.map($.parseJSON(response), function(item) {
+                                            return { value: item.tagName, data: item.id };
+                                            }
+                                        )
 
-                        return { value: item.tagName, data: item.id };
-                    })
-
-                };
-
+                    };
             }
 
         });

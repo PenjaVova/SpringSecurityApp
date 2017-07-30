@@ -60,7 +60,7 @@ public class СlientController {
         return "redirect:/client";
     }
     //изменить
-    @RequestMapping("client/edit/{id}") //добавил client/
+    @RequestMapping("client/edit/{id}") //изменить client/
     public String editClient(@PathVariable("id") int id, Model model){
         model.addAttribute("client", this.clientService.getClient(id));
         model.addAttribute("listClient", this.clientService.listClient());
