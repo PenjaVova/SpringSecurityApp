@@ -27,22 +27,18 @@ public class Zakaz {
     private List<ZakazPosition> positionList;
 
     @Column(name = "dateStartZ")
-    //@Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateStartZ;
 
     @Column(name = "dateChangeZ")
-    //@Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateChangeZ; // TODO: 28.06.2017 фотмат поля может быть нужно поменять на SimpleDateFormat или DateFormat
 
     @Column(name = "dateGotovZ")
-    //@Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateGotovZ;
 
     @Column(name = "dateCloseZ")
-    //@Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date dateCloseZ;
 
@@ -124,6 +120,7 @@ public class Zakaz {
     public void setPositionList(List<ZakazPosition> positionList) {
         this.positionList = positionList;
     }
+
 
     public Date getDateStartZ() {
         return dateStartZ;

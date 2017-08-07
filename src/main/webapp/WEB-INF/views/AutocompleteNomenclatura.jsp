@@ -1,9 +1,11 @@
+<%@ page import="org.hibernate.Session" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-
+<%@ page session="false" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <html>
 
 <head>
@@ -23,7 +25,7 @@
 <div>
     <input type="text"  id="w-input-search" value="">
     <span>
-	  <button id="button-id" type="button">Search</button>
+	  <button id="button-id" type="button">Ок</button>
 	</span>
 </div>
 
@@ -42,7 +44,6 @@
                                             return { value: item.tagName, data: item.id };
                                             }
                                         )
-
                     };
             }
 

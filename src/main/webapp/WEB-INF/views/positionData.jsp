@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Заказ № ${zakazPosition.zakaz_id}</h1>
-<h3>Позиция заказа: ${zakazPosition.positionName}</h3>
+<h3>Калькуляции для заказа: ${zakazPosition.positionName}</h3>
 <!-- Основная таблица -->
 <c:if test="${!empty zakazPosition}">
     <table border="1">
@@ -40,6 +40,8 @@
             </tr>
         </c:forEach>
     </table>
+<%--<c:set var="preCalc" value="${zakazPosition.preCalcList[0].id}"> </c:set>--%>
+<%--<c:redirect url='/preCalcData/${preCalc.id}'> </c:redirect>--%>
 </c:if>
 </body>
 </html>

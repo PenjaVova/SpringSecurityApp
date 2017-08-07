@@ -1,9 +1,9 @@
 package net.proselyte.springsecurityapp.controller.autocomplete;
 
 /**
- * Created by Vova on 28.05.2017.
+ * Created by vova on 04.08.2017.
  */
-public class Tag {
+public class TagClient {
 
     public int id;
     public String tagName;
@@ -24,7 +24,7 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public Tag(int id, String tagName) {
+    public TagClient(int id, String tagName) {
         this.id = id;
         this.tagName = tagName;
     }

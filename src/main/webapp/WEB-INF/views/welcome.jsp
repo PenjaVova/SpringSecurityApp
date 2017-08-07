@@ -201,6 +201,7 @@
         <ul class="sidebar-menu">
             <li class="header">Меню Сайта</li>
             <!-- Optionally, you can add icons to the links -->
+            <li class=""><a href="${contextPath}/AutocompleteNomenclatura"><i class="fa  fa-cirlce"></i> <span>AutocompleteNomenclatura</span></a></li>
             <li class=""><a href="${contextPath}/client"><i class="fa  fa-meh-o"></i> <span>Клиенты</span></a></li>
             <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-navicon"></i> <span>Номенклатура</span></a></li>
 

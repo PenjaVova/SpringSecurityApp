@@ -1,5 +1,6 @@
 package net.proselyte.springsecurityapp.controller;
 
+import net.proselyte.springsecurityapp.model.Zakaz;
 import net.proselyte.springsecurityapp.service.ZakazPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,6 +25,7 @@ public class ZakazPositionController {
 //КАЛЬКУЛЯЦИЯ = заказ.позиция.калькуляция.список материалов
     @RequestMapping("positionData/{id}")
     public String preCacl (@PathVariable("id") int id, Model model) {
+        model.addAttribute("zakaz", new Zakaz());
         model.addAttribute("zakazPosition", this.zakazPositionService.getZakazPosition(id));
         return "positionData";
     }

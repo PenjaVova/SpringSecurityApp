@@ -33,3 +33,5 @@ INSERT INTO clients VALUES (
   '',
   'г. Днепр, ул. Каневская дом. 17',
   'контактное лицо Дамир');
+
+select *  from clients

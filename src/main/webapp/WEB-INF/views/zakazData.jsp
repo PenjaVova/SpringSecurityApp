@@ -14,6 +14,7 @@
 <h2>Клиент ${zakaz.clients_FIO}</h2>
 <h2>Дизанер ${zakaz.sotrFio}</h2>
 
+<%--<spring:param name="zakaz" value="zakaz"> </spring:param>--%>
 
 <!-- Основная таблица -->
 <c:if test="${!empty zakaz}">

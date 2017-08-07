@@ -28,15 +28,17 @@
             <th>edinIzmer</th>
             <th>materialCount</th>
             <th>materialCost</th>
+            <th>Cost</th>
         </tr>
         <c:forEach items="${preCalcData.materialsList}" var="materialsList">
             <%--<c:set var="preCalс" value="${zakazPosition.preCalcList}"></c:set>--%>
             <tr>
-                <td>${materialsList.id}</td>
+                <td>${materialsList.id} </td>
                 <td>${materialsList.nom_elem}</td>
                 <td>${materialsList.edinIzmer}</td>
                 <td>${materialsList.materialCount}</td>
                 <td>${materialsList.materialCost}</td>
+                <td>${materialsList.cost}</td>
             </tr>
         </c:forEach>
     </table>

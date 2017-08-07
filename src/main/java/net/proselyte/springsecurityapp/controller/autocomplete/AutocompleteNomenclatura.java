@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Controller
 public class AutocompleteNomenclatura {
 
-    private List<Tag> data = new ArrayList<>();// сюда заливаю лист номернклатуры
+    private Set<Tag> data = new HashSet<>();// сюда заливаю лист номернклатуры
 
     private NomenclaturaService nomenclaturaService; //беру полем, чтобы воспользоваться методом this.nomenclaturaService.listNomenclatura()
 
@@ -31,6 +34,7 @@ public class AutocompleteNomenclatura {
     @RequestMapping(value = "/AutocompleteNomenclatura", method = RequestMethod.GET)
     public String aaa(Model model) {
         List<Nomenclatura> nomenclaturaList = this.nomenclaturaService.listNomenclatura();
+        data.clear();
         for (Nomenclatura anomenclaturaList: nomenclaturaList) {
             data.add(new Tag(anomenclaturaList.getId(),anomenclaturaList.getNom_elem()));
         }
@@ -41,16 +45,14 @@ public class AutocompleteNomenclatura {
 //-------------------------------------------------------------------------------
     @RequestMapping(value = "/getTags", method = RequestMethod.GET)
     public @ResponseBody
-    List<Tag> getTags(@RequestParam String tagName) {
+    Set<Tag> getTags(@RequestParam String tagName) {
 
         return simulateSearchResult(tagName);
 
     }
 //-------------------------------------------------------------------------------
-    private List<Tag> simulateSearchResult(String tagName) {
-
-        List<Tag> result = new ArrayList<Tag>();
-
+   private Set<Tag> simulateSearchResult(String tagName) {
+        Set <Tag> result = new HashSet<>();
         // iterate a list and filter by tagName
         for (Tag tag : data) {
             if (tag.getTagName().contains(tagName)) {

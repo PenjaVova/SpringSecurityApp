@@ -28,6 +28,31 @@ public class ZakazMaterials {
     @Column(name = "zakaz_pre_calc_id")
     private int zakaz_pre_calc_id;
 
+    /*--************************************************************/
+//todo 274 Глава 6. Управление постоянными объектами !бегаю по листу позиций и вывожу поле str_position_name
+    @Transient
+    public float cost;
+
+    @PostLoad
+    @PostPersist
+    @PostUpdate
+    public void make_cost() {
+        if (materialCount!=null && materialCost!=null) {
+            cost = materialCount * materialCost;
+        }
+    }
+//-------------------------------------------------------
+    public float getCost() {
+        make_cost();
+    return cost;
+    }
+
+    public void setCost(float cost) {
+        make_cost();
+        this.cost = cost;
+    }
+    /*--************************************************************/
+
     public int getId() {
         return id;
     }
