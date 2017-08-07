@@ -7,6 +7,8 @@ import net.proselyte.springsecurityapp.service.ClientService;
 import net.proselyte.springsecurityapp.service.ZakazService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,8 @@ public class ZakazAddController {
     public void setZakazService(ZakazService zakazService) {
         this.zakazService = zakazService;
     }
+
+
 
     //добавить новый заказ - показываю Форму
     @RequestMapping(value = "/zakaz/add", method = RequestMethod.GET)
@@ -73,8 +77,14 @@ private Set<TagClient> simulateSearchResult(String tagName) {
     @RequestMapping(value = "/zakaz/add", method = RequestMethod.POST)
     public String addZakaz(@ModelAttribute("zakaz") Zakaz zakaz) {
         if(zakaz.getId() == 0){
-            zakaz.setDateStartZ(new Date()); // устанавливаю дату создания ЗАКАЗА
-            zakaz.setDateChangeZ(new Date()); // устанавливаю дату изменения ЗАКАЗА
+//получаю логин сотрудника
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            String username = auth.getName();
+//КОНЕЦ получаю логин сотрудника
+
+            zakaz.setDateStartZ(new Date()); // устанавливаю дату создания
+            zakaz.setDateChangeZ(new Date());// устанавливаю дату изменения
+            zakaz.setSotrFio(username);      // устанавливаю Логин создателя
             this.zakazService.addZakaz(zakaz);
         }else {
             this.zakazService.updateZakaz(zakaz);
