@@ -78,6 +78,7 @@
                 return {
                     //must convert json to javascript object before process
                     suggestions: $.map($.parseJSON(response), function(item) {
+//                        alert(item.id + item.tagName );
                                 return { value: item.tagName, data: item.id};
                             }
                     )
