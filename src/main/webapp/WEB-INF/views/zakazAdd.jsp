@@ -31,10 +31,10 @@
         <form:input path="id" readonly="true" class="form-control"  disabled="true"/>
         <form:hidden path="id"/>
     </c:if> --%>
-    <p>clients_id  <form:input path="clients_id"  id="clients_id" disabled="true" type="text" /></p>
+    <p>clients_id  <form:input path="clients_id"  id="clients_id" type="text" /></p>
     <p>clients_FIO <form:input path="clients_FIO" id="clients_FIO" placeholder="Фамилия клиента" type="text" />
         <span>
-	        <button id="button-id" type="button">Ок</button>
+	        <button id="button-id" type="button" onclick="">Ок</button>
 	    </span>
     </p>
     <%--region--
@@ -43,7 +43,17 @@
     <%--<p>dateGotovZ  <form:input path="dateGotovZ"  placeholder="dateGotovZ" type="date" /></p>--
     <%--<p>dateCloseZ  <form:input path="dateCloseZ"  placeholder="dateCloseZ" type="date" /></p>--
     --%>
-    <p>zakazState  <form:input path="zakazState"  placeholder="zakazState" type="text" /></p>
+    <p>zakazState  <form:select path="zakazState"  placeholder="zakazState" type="text">
+                         <form:option value="Новый"/>
+                         <form:option value="Разработка дизайна"/>
+                         <form:option value="Клиент думает"/>
+                         <form:option value="Согласование"/>
+                         <form:option value="Производство"/>
+                         <form:option value="В малярке"/>
+                         <form:option value="Изделия готовы"/>
+                         <form:option value="Заказ закрыт"/>
+                    </form:select>
+    </p>
     <p>price       <form:input path="price"       placeholder="price"      type="number" /></p>
     <%--<p>rpeCost     <form:input path="rpeCost"     placeholder="rpeCost"    type="number" /></p>
     <%--<p>postCost    <form:input path="postCost"    placeholder="postCost"   type="number" /></p>
@@ -68,14 +78,12 @@
                 return {
                     //must convert json to javascript object before process
                     suggestions: $.map($.parseJSON(response), function(item) {
-                                return { value: item.tagName, data: item.id };
+                                return { value: item.tagName, data: item.id};
                             }
                     )
                 };
             }
-
         });
-
     });
 </script>
 

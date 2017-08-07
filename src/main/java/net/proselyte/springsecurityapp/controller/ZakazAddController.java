@@ -46,7 +46,7 @@ public class ZakazAddController {
     @RequestMapping(value = "/zakaz/add", method = RequestMethod.GET)
     public String ShowNewZakazForm(Model model) {
         Set<Client> clientSet= new HashSet<>(this.clientService.listClient());
-//        data.clear();
+        data.clear();
         for (Client client: clientSet) {
             data.add(new TagClient(client.getId(),client.getFio()));
         }

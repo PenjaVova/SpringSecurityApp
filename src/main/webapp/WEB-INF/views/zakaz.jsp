@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -60,7 +61,7 @@
                     <td>${zakazList.id}</td>
                     <td>${zakazList.clients_FIO}</td>
                     <td><a href="<c:url value='/zakazData/${zakazList.id}'/>" target="_blank"> ${zakazList.str_position_name}</a></td>
-                    <td>${zakazList.dateStartZ}</td>
+                    <td><fmt:formatDate value="${zakazList.dateStartZ}" pattern="yyyy-MM-dd"/> </td>
                     <td>${zakazList.dateChangeZ}</td>
                     <td>${zakazList.zakazState}</td>
                     <td>${zakazList.price}</td>
@@ -78,9 +79,6 @@
     </div>
     <!-- КОНЕЦ Основная таблица -->
 </c:if>
-
 <%--вырезал отсюда и вставил на страницу zakazAdd.jsp--%>
-
-
 </body>
 </html>
