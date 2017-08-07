@@ -74,6 +74,7 @@ private Set<TagClient> simulateSearchResult(String tagName) {
     public String addZakaz(@ModelAttribute("zakaz") Zakaz zakaz) {
         if(zakaz.getId() == 0){
             zakaz.setDateStartZ(new Date()); // устанавливаю дату создания ЗАКАЗА
+            zakaz.setDateChangeZ(new Date()); // устанавливаю дату изменения ЗАКАЗА
             this.zakazService.addZakaz(zakaz);
         }else {
             this.zakazService.updateZakaz(zakaz);
