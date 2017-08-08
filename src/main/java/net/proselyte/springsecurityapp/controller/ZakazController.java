@@ -1,15 +1,12 @@
 package net.proselyte.springsecurityapp.controller;
 
 import net.proselyte.springsecurityapp.model.Zakaz;
-import net.proselyte.springsecurityapp.service.ClientService;
-import net.proselyte.springsecurityapp.service.ZakazService;
+import net.proselyte.springsecurityapp.service.zakaz.ZakazService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
 
 /**
  * Created by Vova on 18.07.2017.

@@ -4,7 +4,7 @@ import net.proselyte.springsecurityapp.controller.autocomplete.TagClient;
 import net.proselyte.springsecurityapp.model.Client;
 import net.proselyte.springsecurityapp.model.Zakaz;
 import net.proselyte.springsecurityapp.service.ClientService;
-import net.proselyte.springsecurityapp.service.ZakazService;
+import net.proselyte.springsecurityapp.service.zakaz.ZakazService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;

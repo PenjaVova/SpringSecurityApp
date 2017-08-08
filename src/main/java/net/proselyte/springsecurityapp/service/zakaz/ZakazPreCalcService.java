@@ -1,4 +1,4 @@
-package net.proselyte.springsecurityapp.service;
+package net.proselyte.springsecurityapp.service.zakaz;
 
 import net.proselyte.springsecurityapp.model.ZakazPreCalc;
 import java.util.List;

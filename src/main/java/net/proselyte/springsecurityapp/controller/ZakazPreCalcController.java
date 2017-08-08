@@ -1,6 +1,6 @@
 package net.proselyte.springsecurityapp.controller;
 
-import net.proselyte.springsecurityapp.service.ZakazPreCalcService;
+import net.proselyte.springsecurityapp.service.zakaz.ZakazPreCalcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;

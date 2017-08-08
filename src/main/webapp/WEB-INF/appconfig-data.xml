@@ -89,25 +89,25 @@
      <!--Zakaz-->
     <bean id="zakazDao" class="net.proselyte.springsecurityapp.dao.ZakazDaoImpl"
           p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-    <bean id="zakazService" class="net.proselyte.springsecurityapp.service.ZakazServiceImpl"
+    <bean id="zakazService" class="net.proselyte.springsecurityapp.service.zakaz.ZakazServiceImpl"
           p:zakazDao-ref="zakazDao"/>
 
     <!--ZakazPosition-->
     <bean id="zakazPositionDao" class="net.proselyte.springsecurityapp.dao.ZakazPositionDaoImpl"
           p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-    <bean id="zakazPositionService" class="net.proselyte.springsecurityapp.service.ZakazPositionServiceImpl"
+    <bean id="zakazPositionService" class="net.proselyte.springsecurityapp.service.zakaz.ZakazPositionServiceImpl"
           p:zakazPositionDao-ref="zakazPositionDao"/>
 
     <!--zakazPreCalc-->
     <bean id="zakazPreCalcDao" class="net.proselyte.springsecurityapp.dao.ZakazPreCalcDaoImpl"
           p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-    <bean id="zakazPreCalcService" class="net.proselyte.springsecurityapp.service.ZakazPreCalcServiceImpl"
+    <bean id="zakazPreCalcService" class="net.proselyte.springsecurityapp.service.zakaz.ZakazPreCalcServiceImpl"
           p:zakazPreCalcDao-ref="zakazPreCalcDao"/>
 
     <!--zakazMaterials-->
     <bean id="zakazMaterialsDao" class="net.proselyte.springsecurityapp.dao.ZakazMaterialsDaoImpl"
           p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-    <bean id="zakazMaterialsService" class="net.proselyte.springsecurityapp.service.ZakazMaterialsServiceImpl"
+    <bean id="zakazMaterialsService" class="net.proselyte.springsecurityapp.service.zakaz.ZakazMaterialsServiceImpl"
           p:zakazMaterialsDao-ref="zakazMaterialsDao"/>
 
 

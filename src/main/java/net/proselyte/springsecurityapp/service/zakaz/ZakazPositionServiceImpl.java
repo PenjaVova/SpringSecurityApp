@@ -1,11 +1,10 @@
-package net.proselyte.springsecurityapp.service;
+package net.proselyte.springsecurityapp.service.zakaz;
 
 import net.proselyte.springsecurityapp.dao.ZakazPositionDao;
 import net.proselyte.springsecurityapp.model.ZakazPosition;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Set;
 
 /**
