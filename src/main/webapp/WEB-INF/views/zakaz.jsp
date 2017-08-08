@@ -17,10 +17,8 @@
 
 <a href="${contextPath}/zakaz/add">Добавить новый заказ</a>
 
-
-
 <script src="${contextPath}/resources/date.format.js"></script>
-
+<!--
 <p> JS дата
     <script>
         var now = new Date();
@@ -31,7 +29,7 @@
         //        document.write (fmtNow);
     </script>
 </p>
-
+<!--
 
 
 <!-- Основная таблица -->
