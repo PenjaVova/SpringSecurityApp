@@ -30,10 +30,6 @@
 <body>
 
 <h1>добавить заказ</h1>
-<%--<script>document.write(id_)</script>--%>
-<script>
-    var now = new Date()
-    document.write(now)</script>
 
 <c:url var="addAction" value="/zakaz/add"/>
 <form:form action="${addAction}" commandName="zakaz">
@@ -42,18 +38,12 @@
         <form:input path="id" readonly="true" class="form-control"  disabled="true"/>
         <form:hidden path="id"/>
     </c:if> --%>
-    <p>clients_id  <form:input path="clients_id"  id="clients_id" type="text" /></p>
-    <p>clients_FIO <form:input path="clients_FIO" id="clients_FIO" placeholder="Фамилия клиента" type="text" />
-        <span>
-	        <button id="button-id" type="button" onclick="alert(a)">Ок</button>
-	    </span>
-    </p>
-    <%--region--
-    <%--<p>dateStartZ  <form:input path="dateStartZ"  placeholder="dateStartZ"  type="date" /></p>--
-    <%--<p>dateChangeZ <form:input path="dateChangeZ" placeholder="dateChangeZ" type="date" /></p>--
-    <%--<p>dateGotovZ  <form:input path="dateGotovZ"  placeholder="dateGotovZ" type="date" /></p>--
-    <%--<p>dateCloseZ  <form:input path="dateCloseZ"  placeholder="dateCloseZ" type="date" /></p>--
-    --%>
+     <form:input path="clients_id"  id="clients_id" type="number" hidden="true" readonly="true"/>
+    <p>clients_FIO <form:input path="clients_FIO" id="clients_FIO" placeholder="Фамилия клиента" type="text" required = "true"/></p>
+    <%--<p>dateStartZ  <form:input path="dateStartZ"  placeholder="dateStartZ"  type="date" /></p>
+    <%--<p>dateChangeZ <form:input path="dateChangeZ" placeholder="dateChangeZ" type="date" /></p>
+    <%--<p>dateGotovZ  <form:input path="dateGotovZ"  placeholder="dateGotovZ" type="date" /></p>
+    <%--<p>dateCloseZ  <form:input path="dateCloseZ"  placeholder="dateCloseZ" type="date" /></p>--%>
     <p>zakazState  <form:select path="zakazState"  placeholder="zakazState" type="text">
                          <form:option value="Новый"/>
                          <form:option value="Разработка дизайна"/>
@@ -63,20 +53,18 @@
                          <form:option value="В малярке"/>
                          <form:option value="Изделия готовы"/>
                          <form:option value="Заказ закрыт"/>
-                    </form:select>
-    </p>
+                    </form:select></p>
     <p>price       <form:input path="price"       placeholder="price"      type="number" /></p>
     <%--<p>rpeCost     <form:input path="rpeCost"     placeholder="rpeCost"    type="number" /></p>
     <%--<p>postCost    <form:input path="postCost"    placeholder="postCost"   type="number" /></p>
     <%--<p>sotrFio     <form:input path="sotrFio"     placeholder="sotrFio"    type="text" /></p>--%>
-    <p>coment      <form:input path="coment"      placeholder="coment"     type="text" /></p>
+    <p>coment      <form:textarea path="coment"      placeholder="coment"     type="tex" /></p>
     <%--submit--------------------------------------------------------%>
     <%--<c:if test="${empty zakaz.clients_FIO}">--%>
-    <button type="submit"  >Сохранить</button>
+    <button type="submit">далее</button>
     <%--</c:if>--%>
     <%----------------------------------------------------------%>
 </form:form>
-
 
 <script>
     $(document).ready(function() {
