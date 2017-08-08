@@ -213,7 +213,7 @@
                 </a>
                 <ul style="display: none;" class="treeview-menu">
                     <li class=""><a href="${contextPath}/zakaz"><i class="fa fa-cirle"></i> <span>Заказы</span></a></li>
-                    <li><a href="#">Добавить новый заказ</a></li>
+                    <li><a href="${contextPath}/zakaz/add">Создать заказ</a></li>
                 </ul>
             </li>
 
