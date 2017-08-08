@@ -24,6 +24,11 @@
 <body>
 
 <h1>добавить заказ</h1>
+<script>document.write(id_)</script>
+<script>
+    var now = new Date()
+    document.write(now)</script>
+
 <c:url var="addAction" value="/zakaz/add"/>
 <form:form action="${addAction}" commandName="zakaz">
  <%--   <c:if test="${!empty zakaz.clients_FIO}">
@@ -69,16 +74,17 @@
 <script>
     $(document).ready(function() {
 
+
         $('#clients_FIO').autocomplete({
             serviceUrl: '${pageContext.request.contextPath}/getTagClients',
             paramName: "tagName",
+            paramName2: "id",
             delimiter: ",",
             transformResult: function(response) {
 
                 return {
                     //must convert json to javascript object before process
                     suggestions: $.map($.parseJSON(response), function(item) {
-//                        alert(item.id + item.tagName );
                                 return { value: item.tagName, data: item.id};
                             }
                     )
@@ -87,6 +93,5 @@
         });
     });
 </script>
-
 </body>
 </html>

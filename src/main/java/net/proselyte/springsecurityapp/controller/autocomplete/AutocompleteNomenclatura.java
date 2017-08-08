@@ -55,7 +55,7 @@ public class AutocompleteNomenclatura {
         Set <Tag> result = new HashSet<>();
         // iterate a list and filter by tagName
         for (Tag tag : data) {
-            if (tag.getTagName().contains(tagName)) {
+            if (tag.getTagName().toUpperCase().contains(tagName.toUpperCase())) {
                 result.add(tag);
             }
         }

@@ -66,7 +66,7 @@ private Set<TagClient> simulateSearchResult(String tagName) {
     Set <TagClient> result = new HashSet<>();
     // iterate a list and filter by tagName
     for (TagClient tagClient: data) {
-        if (tagClient.getTagName().contains(tagName)) {
+        if (tagClient.getTagName().toUpperCase().contains(tagName.toUpperCase())) {
             result.add(tagClient);
         }
     }
