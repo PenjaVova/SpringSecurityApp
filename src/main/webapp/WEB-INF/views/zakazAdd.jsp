@@ -20,11 +20,17 @@
     <!-- AdminLTE App -->
     <script src="${contextPath}/resources/dist/js/app.min.js"></script>
 
+    <script type="text/css">
+        .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+        .autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:22px}
+        .autocomplete-selected { background: #F0F0F0; }
+        .autocomplete-suggestions strong { font-weight: bold; color: #3399FF; }
+    </script>
 </head>
 <body>
 
 <h1>добавить заказ</h1>
-<script>document.write(id_)</script>
+<%--<script>document.write(id_)</script>--%>
 <script>
     var now = new Date()
     document.write(now)</script>
@@ -39,7 +45,7 @@
     <p>clients_id  <form:input path="clients_id"  id="clients_id" type="text" /></p>
     <p>clients_FIO <form:input path="clients_FIO" id="clients_FIO" placeholder="Фамилия клиента" type="text" />
         <span>
-	        <button id="button-id" type="button" onclick="">Ок</button>
+	        <button id="button-id" type="button" onclick="alert(a)">Ок</button>
 	    </span>
     </p>
     <%--region--
@@ -71,17 +77,13 @@
     <%----------------------------------------------------------%>
 </form:form>
 
+
 <script>
     $(document).ready(function() {
-
-
         $('#clients_FIO').autocomplete({
             serviceUrl: '${pageContext.request.contextPath}/getTagClients',
             paramName: "tagName",
-            paramName2: "id",
-            delimiter: ",",
             transformResult: function(response) {
-
                 return {
                     //must convert json to javascript object before process
                     suggestions: $.map($.parseJSON(response), function(item) {
@@ -89,6 +91,10 @@
                             }
                     )
                 };
+            },
+            onSelect: function (suggestions) {
+                //console.log(suggestions);
+                $('#clients_id').val(suggestions.data);
             }
         });
     });
