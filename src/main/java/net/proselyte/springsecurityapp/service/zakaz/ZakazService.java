@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Vova on 16.07.2017.
  */
 public interface ZakazService {
-    public void addZakaz (Zakaz zakaz);
+    public int addZakaz (Zakaz zakaz);
 
     public void updateZakaz (Zakaz zakaz);
 

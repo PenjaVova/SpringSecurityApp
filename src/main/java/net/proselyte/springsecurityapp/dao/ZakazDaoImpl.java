@@ -24,9 +24,11 @@ public class ZakazDaoImpl implements ZakazDao {
     }
 
     @Override //СОХРАНИТЬ
-    public void addZakaz(Zakaz zakaz) {
+    public int addZakaz(Zakaz zakaz) {
         Session session = this.sessionFactory.getCurrentSession(); // TODO: 22.07.2017 getCurrentSession()
         session.persist(zakaz);
+        int zakaz_id =  zakaz.getId();
+        return zakaz_id;
     }
 
     @Override //обновить

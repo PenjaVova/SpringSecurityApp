@@ -75,7 +75,7 @@ private Set<TagClient> simulateSearchResult(String tagName) {
 //-------------------------------------------------------------------------------
     //добавить новый заказ
     @RequestMapping(value = "/zakaz/add", method = RequestMethod.POST)
-    public String addZakaz(@ModelAttribute("zakaz") Zakaz zakaz) {
+    public String addZakaz(@ModelAttribute("zakaz") Zakaz zakaz, Model model) {
         if(zakaz.getId() == 0){
 //получаю логин сотрудника
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -85,11 +85,13 @@ private Set<TagClient> simulateSearchResult(String tagName) {
             zakaz.setDateStartZ(new Date()); // устанавливаю дату создания
             zakaz.setDateChangeZ(new Date());// устанавливаю дату изменения
             zakaz.setSotrFio(username);      // устанавливаю Логин создателя
-            this.zakazService.addZakaz(zakaz);
+            int zakaz_id = this.zakazService.addZakaz(zakaz);
+            model.addAttribute("zakaz_id",zakaz_id);
         }else {
             this.zakazService.updateZakaz(zakaz);
         }
-        return "redirect:/zakaz";
+//        return "redirect:/zakaz"; // TODO: 09.08.2017 можно перенаправлять сразу на страницу созданного заказа
+        return "redirect:/zakazData/{zakaz_id}";
     }
 
 }

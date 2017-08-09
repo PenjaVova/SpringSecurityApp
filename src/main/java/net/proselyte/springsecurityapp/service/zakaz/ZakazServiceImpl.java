@@ -18,8 +18,8 @@ public class ZakazServiceImpl implements ZakazService {
 
     @Override
     @Transactional
-    public void addZakaz(Zakaz zakaz) {
-        this.zakazDao.addZakaz(zakaz);
+    public int addZakaz(Zakaz zakaz) {
+        return this.zakazDao.addZakaz(zakaz);
     }
 
     @Override
