@@ -1,6 +1,5 @@
 package net.proselyte.springsecurityapp.controller;
 
-import net.proselyte.springsecurityapp.model.Client;
 import net.proselyte.springsecurityapp.model.Zakaz;
 import net.proselyte.springsecurityapp.model.ZakazPosition;
 import net.proselyte.springsecurityapp.service.zakaz.ZakazPositionService;

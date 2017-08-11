@@ -33,27 +33,27 @@
 
 <c:url var="addAction" value="/zakaz/add"/>
 <form:form action="${addAction}" commandName="zakaz">
- <%--   <c:if test="${!empty zakaz.clients_FIO}">
-        <label path="id">ID</label>
-        <form:input path="id" readonly="true" class="form-control"  disabled="true"/>
-        <form:hidden path="id"/>
-    </c:if> --%>
-     <form:input path="clients_id"  id="clients_id" type="number" hidden="true" readonly="true"/>
+    <%--   <c:if test="${!empty zakaz.clients_FIO}">
+           <label path="id">ID</label>
+           <form:input path="id" readonly="true" class="form-control"  disabled="true"/>
+           <form:hidden path="id"/>
+       </c:if> --%>
+    <form:input path="clients_id"  id="clients_id" type="number" hidden="true" readonly="true"/>
     <p>clients_FIO <form:input path="clients_FIO" id="clients_FIO" placeholder="Фамилия клиента" type="text" required = "true"/></p>
     <%--<p>dateStartZ  <form:input path="dateStartZ"  placeholder="dateStartZ"  type="date" /></p>
     <%--<p>dateChangeZ <form:input path="dateChangeZ" placeholder="dateChangeZ" type="date" /></p>
     <%--<p>dateGotovZ  <form:input path="dateGotovZ"  placeholder="dateGotovZ" type="date" /></p>
     <%--<p>dateCloseZ  <form:input path="dateCloseZ"  placeholder="dateCloseZ" type="date" /></p>--%>
     <p>zakazState  <form:select path="zakazState"  placeholder="zakazState" type="text">
-                         <form:option value="Новый"/>
-                         <form:option value="Разработка дизайна"/>
-                         <form:option value="Клиент думает"/>
-                         <form:option value="Согласование"/>
-                         <form:option value="Производство"/>
-                         <form:option value="В малярке"/>
-                         <form:option value="Изделия готовы"/>
-                         <form:option value="Заказ закрыт"/>
-                    </form:select></p>
+        <form:option value="Новый"/>
+        <form:option value="Разработка дизайна"/>
+        <form:option value="Клиент думает"/>
+        <form:option value="Согласование"/>
+        <form:option value="Производство"/>
+        <form:option value="В малярке"/>
+        <form:option value="Изделия готовы"/>
+        <form:option value="Заказ закрыт"/>
+    </form:select></p>
     <p>price       <form:input path="price"       placeholder="price"      type="number" /></p>
     <%--<p>rpeCost     <form:input path="rpeCost"     placeholder="rpeCost"    type="number" /></p>
     <%--<p>postCost    <form:input path="postCost"    placeholder="postCost"   type="number" /></p>

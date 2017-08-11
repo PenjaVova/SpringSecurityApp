@@ -32,7 +32,7 @@ public class Zakaz {
 
     @Column(name = "dateChangeZ")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date dateChangeZ; // TODO: 28.06.2017 фотмат поля может быть нужно поменять на SimpleDateFormat или DateFormat
+    private Date dateChangeZ;
 
     @Column(name = "dateGotovZ")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

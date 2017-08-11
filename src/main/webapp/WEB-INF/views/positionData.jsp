@@ -43,5 +43,11 @@
 <%--<c:set var="preCalc" value="${zakazPosition.preCalcList[0].id}"> </c:set>--%>
 <%--<c:redirect url='/preCalcData/${preCalc.id}'> </c:redirect>--%>
 </c:if>
+
+
+
+
+
+
 </body>
 </html>

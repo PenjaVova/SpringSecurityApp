@@ -10,11 +10,9 @@
     <title>Заказ № ${zakaz.id}</title>
 </head>
 <body>
-<h1>Заказ № ${zakaz.id}</h1>
+<h1>zakaz_id № ${zakaz_id}</h1>
 <h2>Клиент ${zakaz.clients_FIO}</h2>
 <h2>Дизанер ${zakaz.sotrFio}</h2>
-
-<%--<spring:param name="zakaz" value="zakaz"> </spring:param>--%>
 
 <!-- Основная таблица -->
 <c:if test="${!empty zakaz}">
@@ -33,9 +31,6 @@
     </tr>
     <c:forEach items="${zakaz.positionList}" var="positionList">
     <tr>
-
-
-
         <td>${positionList.id}</td>
         <%--<td>${positionList.positionName}</td>--%>
         <td><a href="<c:url value='/positionData/${positionList.id}'/>" target="_blank"> ${positionList.positionName}</a></td>
@@ -52,9 +47,38 @@
 </table>
 </c:if>
 
+
+<c:if test="${!empty zakazPosition}">
+    <h3>Изменить позицию заказа</h3>
+</c:if>
+
+<c:if test="${empty zakaz.make_position_name()}">
+    <h3 >Добавить позицию в заказ</h3>
+</c:if>
+
+
+<c:url var="addAction" value="zakazData/${zakaz_id}/add"/>
+
+<%--<form:form action="${addAction}" commandName="zakazPosition">--%>
+    <%--<p>clients_FIO <form:input path="positionName" id="positionName" placeholder="Фамилия клиента" type="text" required = "true"/></p>--%>
+<%--</form:form>--%>
 <!--Добавить позицию---------------------------------------------------->
-
-
+id
+zakaz_id
+positionName
+vid_izdeliya
+edinIzmer
+materialCount
+dateStartPos
+dateChangePos
+dateGotovPos
+users_id
+users_username
+positionState
+price
+costMaterial
+costNoMaterial
+coment
 <!--конец Добавить позицию---------------------------------------------->
 
 
