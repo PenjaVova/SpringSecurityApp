@@ -27,8 +27,13 @@
   </properties>
 
   <dependencies>
+    <!--<dependency>-->
+      <!--<groupId>org.apache.tiles</groupId>-->
+      <!--<artifactId>tiles-core</artifactId>-->
+      <!--<version>3.0.7</version>-->
+    <!--</dependency>-->
       <!--ДЛя работы с датой Книга Spring 4 для профф-лов стр 640-->
-    <dependency>
+       <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
       <version>${joda-time.version}</version>
