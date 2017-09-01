@@ -1,8 +1,9 @@
 package net.proselyte.springsecurityapp.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,13 +27,13 @@ public class ZakazPosition {
     @Column(name = "materialCount")   private float materialCount;
 
     @Column(name = "dateStartPos")
-    @Temporal(TemporalType.TIMESTAMP) private Date dateStartPos;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) private Date dateStartPos;
 
     @Column(name = "dateChangePos")
-    @Temporal(TemporalType.TIMESTAMP) private Date dateChangePos;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) private Date dateChangePos;
 
     @Column(name = "dateGotovPos")
-    @Temporal(TemporalType.TIMESTAMP) private Date dateGotovPos;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) private Date dateGotovPos;
 
     @Column(name = "users_id")        private int users_id;
     @Column(name = "users_username")  private String users_username;

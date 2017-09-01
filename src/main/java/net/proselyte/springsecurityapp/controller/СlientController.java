@@ -53,7 +53,7 @@ public class СlientController {
     }
 
     //удалить
-    @RequestMapping("/client/remove/{id}") //добавил /client
+    @RequestMapping("/client/remove/{id}")
     public String removeClient (@PathVariable("id") int id){
         this.clientService.removeClient(id);
 

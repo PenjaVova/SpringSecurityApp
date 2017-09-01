@@ -6,10 +6,13 @@ import net.proselyte.springsecurityapp.service.zakaz.ZakazPositionService;
 import net.proselyte.springsecurityapp.service.zakaz.ZakazService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /* Created by Vova on 18.07.2017*/
@@ -40,17 +43,40 @@ public class ZakazController {
     }
 
 //страница со списком ПОЗИЦИЙ по ЗАКАЗУ
-    @RequestMapping ("zakazData/{id}")
+    @RequestMapping (value = "zakazData/{id}", method = RequestMethod.GET)
     public String zakazdata (@PathVariable("id") int id, Model model) {
         Zakaz zakaz = this.zakazService.getZakaz(id);
         List <ZakazPosition> positionList = zakaz.getPositionList();
         model.addAttribute("zakaz", zakaz);
         model.addAttribute("zakaz_id",id);
         model.addAttribute("positionList", positionList);
+        model.addAttribute("zakazPosition", new ZakazPosition());
         return "zakazData";
     }
 
-//удалить
+//добавить позицию в заказ
+    @RequestMapping (value = "zakazData/{zakaz_id}", method = RequestMethod.POST)
+    public String addPosition (@ModelAttribute("zakazData") ZakazPosition zakazPosition,Model model, @PathVariable("zakaz_id") int zakaz_id) {
+        if (zakazPosition.getId() == 0) {
+//получаю логин сотрудника
+//            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//            String username = auth.getName();
+//КОНЕЦ получаю логин сотрудника
+            zakazPosition.setDateStartPos(new Date());
+            zakazPosition.setDateChangePos(new Date());
+            zakazPosition.setZakaz_id(zakaz_id);
+        model.addAttribute("zakazPosition", zakazPosition);
+        zakazPositionService.addZakazPosition(zakazPosition);
+
+        }
+        return "redirect:/zakazData/{zakaz_id}";
+    }
+
+
+
+
+
+//удалить ЗАКАЗ
     @RequestMapping("/zakaz/remove/{id}")
     public String removeZakaz(@PathVariable("id") int id){
         this.zakazService.removeZakaz(id);

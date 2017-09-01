@@ -45,14 +45,14 @@
     <%--<p>dateGotovZ  <form:input path="dateGotovZ"  placeholder="dateGotovZ" type="date" /></p>
     <%--<p>dateCloseZ  <form:input path="dateCloseZ"  placeholder="dateCloseZ" type="date" /></p>--%>
     <p>zakazState  <form:select path="zakazState"  placeholder="zakazState" type="text">
-        <form:option value="Новый"/>
-        <form:option value="Разработка дизайна"/>
-        <form:option value="Клиент думает"/>
-        <form:option value="Согласование"/>
-        <form:option value="Производство"/>
-        <form:option value="В малярке"/>
-        <form:option value="Изделия готовы"/>
-        <form:option value="Заказ закрыт"/>
+                        <form:option value="Новый"/>
+                        <form:option value="Разработка дизайна"/>
+                        <form:option value="Клиент думает"/>
+                        <form:option value="Согласование"/>
+                        <form:option value="Производство"/>
+                        <form:option value="В малярке"/>
+                        <form:option value="Изделия готовы"/>
+                        <form:option value="Заказ закрыт"/>
     </form:select></p>
     <p>price       <form:input path="price"       placeholder="price"      type="number" /></p>
     <%--<p>rpeCost     <form:input path="rpeCost"     placeholder="rpeCost"    type="number" /></p>
