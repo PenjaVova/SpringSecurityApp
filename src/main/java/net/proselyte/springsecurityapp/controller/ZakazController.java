@@ -53,7 +53,6 @@ public class ZakazController {
         model.addAttribute("zakazPosition", new ZakazPosition());
         return "zakazData";
     }
-
 //добавить позицию в заказ
     @RequestMapping (value = "zakazData/{zakaz_id}", method = RequestMethod.POST)
     public String addPosition (@ModelAttribute("zakazData") ZakazPosition zakazPosition,Model model, @PathVariable("zakaz_id") int zakaz_id) {
