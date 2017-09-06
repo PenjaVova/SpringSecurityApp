@@ -8,39 +8,35 @@ import javax.persistence.*;
 @Table(name = "nomenclatura")
 public class Nomenclatura {
 
+    private int id;
+    private String nom_gruppa;
+    private String nom_elem;
+
     public Nomenclatura() {}
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "nom_gruppa")
-    private String nom_gruppa;
-
-    @Column(name = "nom_elem")
-    private String nom_elem;
-
     public int getId() {
         return id;
+    }
+
+    @Column(name = "nom_gruppa")
+    public String getNom_gruppa() {
+        return nom_gruppa;
+    }
+
+    @Column(name = "nom_elem")
+    public String getNom_elem() {
+        return nom_elem;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getNom_gruppa() {
-        return nom_gruppa;
-    }
-
     public void setNom_gruppa(String nom_gruppa) {
         this.nom_gruppa = nom_gruppa;
     }
-
-    public String getNom_elem() {
-        return nom_elem;
-    }
-
     public void setNom_elem(String nom_elem) {
         this.nom_elem = nom_elem;
     }

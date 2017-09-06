@@ -49,9 +49,9 @@ public class ZakazDaoImpl implements ZakazDao {
 
     @Override
     public Zakaz getZakazById(int id) {
-        Session session = this.sessionFactory.openSession();
+        Session session = this.sessionFactory.getCurrentSession();
         Zakaz zakaz = (Zakaz) session.get(Zakaz.class,new Integer(id));
-        session.close();// TODO: 22.07.2017 getCurrentSession()
+       // session.close();// TODO: 22.07.2017 getCurrentSession()
         return zakaz;
 
     }
