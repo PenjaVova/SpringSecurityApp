@@ -20,7 +20,21 @@ public class ZakazPosition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 //------------------------------------------------------------
-    @Column(name = "zakaz_id")        private int zakaz_id;
+    @Column(name = "zakaz_id") private int zakaz_id;
+    public  int getZakaz_id() {
+        return zakaz_id;
+    }
+    public void setZakaz_id(int zakaz_id) {
+        this.zakaz_id = zakaz_id;
+    }
+//------------------------------------------------------------
+
+
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "zakaz_id", insertable = false, updatable = false)
+    private Zakaz zakaz;
+
     @Column(name = "positionName")    private String positionName;
     @Column(name = "vid_izdeliya")    private String vidIzdeliya;
     @Column(name = "edinIzmer")       private String  edinIzmer;
@@ -58,12 +72,7 @@ public class ZakazPosition {
         this.id = id;
     }
 
-    public  int getZakaz_id() {
-        return zakaz_id;
-    }
-    public void setZakaz_id(int zakaz_id) {
-        this.zakaz_id = zakaz_id;
-    }
+
 
     public String getPositionName() {
         return positionName;
@@ -173,7 +182,7 @@ public class ZakazPosition {
     public String toString() {
         return "ZakazPosition{" +
                 "id=" + id +
-                ", zakaz_id=" + zakaz_id +
+//                ", zakaz_id=" + zakaz_id +
                 ", positionName='" + positionName + '\'' +
                 ", vidIzdeliya='" + vidIzdeliya + '\'' +
                 ", edinIzmer='" + edinIzmer + '\'' +
@@ -190,5 +199,13 @@ public class ZakazPosition {
                 ", costNoMaterial=" + costNoMaterial +
                 ", coment='" + coment + '\'' +
                 '}';
+    }
+
+    public Zakaz getZakaz() {
+        return zakaz;
+    }
+
+    public void setZakaz(Zakaz zakaz) {
+        this.zakaz = zakaz;
     }
 }

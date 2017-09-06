@@ -64,6 +64,9 @@ public class ZakazController {
             zakazPosition.setDateStartPos(new Date());
             zakazPosition.setDateChangePos(new Date());
             zakazPosition.setZakaz_id(zakaz_id);
+//            zakazPosition.setZakaz(new Zakaz());
+//            zakazPosition.getZakaz().setId(zakaz_id);
+
         model.addAttribute("zakazPosition", zakazPosition);
         zakazPositionService.addZakazPosition(zakazPosition);
 

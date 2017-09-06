@@ -6,105 +6,88 @@ import javax.persistence.*;
 @Table(name = "clients")
 public class Client {
 
-    public Client() {} //пустой конструктор
+    private int id;
+    private String fio;
+    private String phone;
+    private String inn;
+    private String fiz_ur;
+    private String acc;
+    private String pasp;
+    private String addr;
+    private String koment;
 
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "FIO")
-    private String fio;
-
-    @Column(name = "phone")
-    private String phone;
-
-    @Column(name = "INN")
-    private String inn;
-
-    @Column(name = "fiz_ur")
-    private String fiz_ur;
-
-    @Column(name = "ACC")
-    private String acc;
-
-    @Column(name = "pasp")
-    private String pasp;
-
-    @Column(name = "addr")
-    private String addr;
-
-    @Column(name = "koment")
-    private String koment;
-
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @Column(name = "FIO")
     public String getFio() {
         return fio;
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
-    }
-
+    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
+    @Column(name = "INN")
     public String getInn() {
         return inn;
     }
 
-    public void setInn(String inn) {
-        this.inn = inn;
-    }
-
+    @Column(name = "fiz_ur")
     public String getFiz_ur() {
         return fiz_ur;
     }
 
-    public void setFiz_ur(String fiz_ur) {
-        this.fiz_ur = fiz_ur;
-    }
-
+    @Column(name = "ACC")
     public String getAcc() {
         return acc;
     }
-
-    public void setAcc(String acc) {
-        this.acc = acc;
-    }
-
+    @Column(name = "pasp")
     public String getPasp() {
         return pasp;
     }
 
-    public void setPasp(String pasp) {
-        this.pasp = pasp;
-    }
-
+    @Column(name = "addr")
     public String getAddr() {
         return addr;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
-
+    @Column(name = "koment")
     public String getKoment() {
         return koment;
     }
 
+    public Client() {} //пустой конструктор
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public void setInn(String inn) {
+        this.inn = inn;
+    }
+    public void setFiz_ur(String fiz_ur) {
+        this.fiz_ur = fiz_ur;
+    }
+    public void setAcc(String acc) {
+        this.acc = acc;
+    }
+    public void setPasp(String pasp) {
+        this.pasp = pasp;
+    }
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
     public void setKoment(String koment) {
         this.koment = koment;
     }

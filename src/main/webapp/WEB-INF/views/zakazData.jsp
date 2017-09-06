@@ -56,7 +56,7 @@
     <form:form action="${addAction}" commandName="zakazPosition">
 
         <p>id             <form:input path="id"             id="id"             placeholder="id"             type="number" disabled="true"/></p>
-        <p>zakaz_id       <form:input path="zakaz_id"       id="zakaz_id"       placeholder="zakaz_id"       type="number" disabled="true"/></p>
+        <%--<p>zakaz_id       <form:input path="zakaz_id"       id="zakaz_id"       placeholder="zakaz_id"       type="number" disabled="true"/></p>--%>
         <p>positionName   <form:input path="positionName"   id="positionName"   placeholder="positionName"   type="text"   required = "true"/></p>
         <p>vidIzdeliya    <form:input path="vidIzdeliya"    id="vidIzdeliya"    placeholder="vidIzdeliya"    type="text"   required = "true"/></p>
         <p>materialCount  <form:input path="materialCount"  id="materialCount"  placeholder="materialCount"  type="number" required = "true"/></p>
