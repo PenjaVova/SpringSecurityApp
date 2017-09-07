@@ -10,16 +10,10 @@ import java.util.Set;
 @Table(name = "zakaz_position")
 public class ZakazPosition {
 
-    //region преобразование дат
-/*   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-*    String sDate = sdf.format(new Date(System.currentTimeMillis()));
-*/
-//endregion
-//------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-//------------------------------------------------------------
+
     @Column(name = "zakaz_id") private int zakaz_id;
     public  int getZakaz_id() {
         return zakaz_id;
@@ -27,9 +21,6 @@ public class ZakazPosition {
     public void setZakaz_id(int zakaz_id) {
         this.zakaz_id = zakaz_id;
     }
-//------------------------------------------------------------
-
-
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "zakaz_id", insertable = false, updatable = false)
@@ -209,3 +200,8 @@ public class ZakazPosition {
         this.zakaz = zakaz;
     }
 }
+//region преобразование дат
+/*   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+*    String sDate = sdf.format(new Date(System.currentTimeMillis()));
+*/
+//endregion

@@ -6,9 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Vova on 28.06.2017.
- */
+/* Created by Vova on 28.06.2017. */
 @Entity
 @Table (name = "zakaz")
 public class Zakaz {
@@ -72,45 +70,52 @@ public class Zakaz {
     public List<ZakazPosition> getPositionList() {
         return positionList;
     }
+
     @Column(name = "dateStartZ") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date getDateStartZ() {
         return dateStartZ;
     }
-    @Column(name = "dateChangeZ")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+
+    @Column(name = "dateChangeZ") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date getDateChangeZ() {
         return dateChangeZ;
     }
-    @Column(name = "dateGotovZ")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+
+    @Column(name = "dateGotovZ")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date getDateGotovZ() {
         return dateGotovZ;
     }
-    @Column(name = "dateCloseZ")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+
+    @Column(name = "dateCloseZ")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date getDateCloseZ() {
         return dateCloseZ;
     }
+
     @Column(name = "zakazState")
     public String getZakazState() {
         return zakazState;
     }
+
     @Column(name = "price")
     public float getPrice() {
         return price;
     }
+
     @Column(name = "rpeCost")
     public float getRpeCost() {
         return rpeCost;
     }
+
     @Column(name = "postCost")
     public float getPostCost() {
         return postCost;
     }
+
     @Column(name = "sotrFio")
     public String getSotrFio() {
         return sotrFio;
     }
+
     @Column(name = "coment")
     public String getComent() {
         return coment;
