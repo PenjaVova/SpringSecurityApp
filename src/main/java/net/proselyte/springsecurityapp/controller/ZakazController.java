@@ -64,18 +64,20 @@ public class ZakazController {
             zakazPosition.setDateStartPos(new Date());
             zakazPosition.setDateChangePos(new Date());
             zakazPosition.setZakaz_id(zakaz_id);
-//            zakazPosition.setZakaz(new Zakaz());
-//            zakazPosition.getZakaz().setId(zakaz_id);
-
-        model.addAttribute("zakazPosition", zakazPosition);
-        zakazPositionService.addZakazPosition(zakazPosition);
-
+            model.addAttribute("zakazPosition", zakazPosition);
+            zakazPositionService.addZakazPosition(zakazPosition);
         }
         return "redirect:/zakazData/{zakaz_id}";
     }
 
-
-
+//удалить позицию заказа zakazData/remove/${positionList.id}
+    @RequestMapping("zakazData/remove/{id}")
+    public String revomeZakazData(@PathVariable ("id") int id, Model model, Zakaz zakaz){
+        this.zakazPositionService.removeZakazPosition(id);
+        int zakaz_id = zakaz.getId();
+        model.addAttribute("zakaz_id", zakaz_id);
+        return "redirect:/zakazData/{zakaz_id}";
+    }
 
 
 //удалить ЗАКАЗ

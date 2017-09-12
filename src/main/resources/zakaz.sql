@@ -38,8 +38,8 @@ CREATE TABLE zakaz_position (
   costNoMaterial NUMERIC(16,2), -- доп. расходы: јѕ  + расходники + посто¤нные издержки
   coment         VARCHAR(255),
 
-  FOREIGN KEY (zakaz_id) REFERENCES zakaz (id)
-)
+  FOREIGN KEY (zakaz_id) REFERENCES zakaz (id) ON DELETE CASCADE
+  )
   ENGINE = InnoDB;
 -- ********************************************************
 -- Table: zakaz_pre_calc  --Калькуляция

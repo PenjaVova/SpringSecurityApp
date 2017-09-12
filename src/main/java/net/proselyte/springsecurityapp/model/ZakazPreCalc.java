@@ -18,6 +18,18 @@ public class ZakazPreCalc {
     @Column(name = "position_id")
     private int position_id;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "position_id", insertable = false, updatable = false)
+    private ZakazPosition zakazPosition;
+    public ZakazPosition getZakazPosition() {
+        return zakazPosition;
+    }
+
+    public void setZakazPosition(ZakazPosition zakazPosition) {
+        this.zakazPosition = zakazPosition;
+    }
+
+
     @Column(name = "users_username")
     private String users_username;
 
@@ -45,7 +57,7 @@ public class ZakazPreCalc {
     @Column(name = "coment")
     private String coment;
 
-    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE} )
     @JoinColumn(name = "zakaz_pre_calc_id")
     private List<ZakazMaterials> materialsList;
 
@@ -160,4 +172,5 @@ public class ZakazPreCalc {
                 ", materialsList=" + materialsList +
                 '}';
     }
+
 }

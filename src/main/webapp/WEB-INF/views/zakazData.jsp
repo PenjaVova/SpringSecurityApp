@@ -29,6 +29,7 @@
         <th>Стоимость осн. материалов</th>
         <th>Стоимость расходников</th>
         <th>Комментарий</th>
+        <th>Удалить позицию</th>
         <th>id</th>
     </tr>
     <c:forEach items="${zakaz.positionList}" var="positionList" varStatus="positionListCount">
@@ -45,6 +46,7 @@
         <td>${positionList.costMaterial}</td>
         <td>${positionList.costNoMaterial}</td>
         <td>${positionList.coment}</td>
+        <td><a href="<c:url value='/zakazData/remove/${positionList.id}'/>">удалить</a></td>
         <td>${positionList.id}</td>
     </tr>
     </c:forEach>
@@ -53,7 +55,7 @@
 <!-- КОНЕЦ Основная таблица -->
 
 
-    <h3 >Добавить позицию в заказ</h3>
+<fieldset><legend><h3>Добавить позицию в заказ</h3></legend>
 
 <c:url var="addAction" value="/zakazData/${zakaz_id}"/>
 <div class="box-body">
@@ -98,6 +100,7 @@
            материалов       <form:input path="costMaterial"   id="costMaterial"   placeholder="costMaterial"   type="number"/></p>
         <p>Стоимость расходников <form:input path="costNoMaterial" id="costNoMaterial" placeholder="costNoMaterial" type="number"/></p>
         <p>Комментарий <form:textarea path="coment"         id="coment"         placeholder="максимум 255 символов"/></p>
+</fieldset>
         <%--submit--------------------------------------------------------%>
         <div colspan="2">
             <c:if test="${!empty positionList[0].positionName}">

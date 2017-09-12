@@ -29,7 +29,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>ЧП Михальченко</b></a>
+    <b>ЧП Михальченко</b>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -59,7 +59,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Войти</button>
         </div>
         <!-- /.col -->
       </div>
