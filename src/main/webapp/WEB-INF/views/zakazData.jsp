@@ -46,7 +46,7 @@
         <td>${positionList.costMaterial}</td>
         <td>${positionList.costNoMaterial}</td>
         <td>${positionList.coment}</td>
-        <td><a href="<c:url value='/zakazData/remove/${positionList.id}'/>">удалить</a></td>
+        <td><a href="<c:url value='/zakazData/${zakaz.id}/remove/${positionList.id}'/>">удалить</a></td>
         <td>${positionList.id}</td>
     </tr>
     </c:forEach>

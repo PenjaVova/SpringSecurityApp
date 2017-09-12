@@ -6,6 +6,7 @@ import net.proselyte.springsecurityapp.service.zakaz.ZakazPositionService;
 import net.proselyte.springsecurityapp.service.zakaz.ZakazService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -71,10 +72,10 @@ public class ZakazController {
     }
 
 //удалить позицию заказа zakazData/remove/${positionList.id}
-    @RequestMapping("zakazData/remove/{id}")
-    public String revomeZakazData(@PathVariable ("id") int id, Model model, Zakaz zakaz){
+    @RequestMapping("zakazData/{zakaz_id}/remove/{id}")
+    public String revomeZakazData(@PathVariable ("id")       int id, Model model,
+                                  @PathVariable ("zakaz_id") int zakaz_id){
         this.zakazPositionService.removeZakazPosition(id);
-        int zakaz_id = zakaz.getId();
         model.addAttribute("zakaz_id", zakaz_id);
         return "redirect:/zakazData/{zakaz_id}";
     }
