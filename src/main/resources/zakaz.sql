@@ -55,7 +55,7 @@ CREATE TABLE zakaz_pre_calc (
   materialCost   NUMERIC(16,2),  -- себестоимость мариала /*todo когда буду делать склад то при оприходывании на заказ нужно сюда проставл¤ть суммму закупки*/
   isCostReal     VARCHAR(1),     -- цена средн¤¤ = "N" если реальна¤ цена - проставл¤ть "Y" при оприходывании
   coment         VARCHAR(255),
-  FOREIGN KEY (position_id) REFERENCES zakaz_position (id)
+  FOREIGN KEY (position_id) REFERENCES zakaz_position (id) ON DELETE CASCADE
 )
   ENGINE = InnoDB;
 

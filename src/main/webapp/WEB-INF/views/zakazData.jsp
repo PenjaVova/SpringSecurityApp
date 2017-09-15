@@ -11,10 +11,21 @@
     <title>Заказ № ${zakaz.id}</title>
 </head>
 <body>
-<h1>Заказ № ${zakaz_id}</h1>
-<h2>ФИО клиента: ${zakaz.clients_FIO}</h2>
-<h2>Ответственный сотрудник: ${zakaz.sotrFio}</h2>
-
+<table id = "meta">
+    <tr>
+        <td>Заказ № </td>
+        <td>${zakaz_id}</td>
+    </tr>
+    <tr>
+        <td>ФИО клиента: </td>
+        <td>${zakaz.clients_FIO}</td>
+    </tr>
+    <tr>
+        <td>Ответственный сотрудник: </td>
+        <td> ${zakaz.sotrFio}</td>
+    </tr>
+</table>
+<br>
 <!-- Основная таблица -->
 <c:if test="${!empty positionList}">
 <table border="1">
@@ -37,7 +48,7 @@
 
         <td>${positionListCount.count}</td>
         <%--<td>${positionList.positionName}</td>--%>
-        <td><a href="<c:url value='/positionData/${positionList.id}'/>" target="_blank"> ${positionList.positionName}</a></td>
+        <td><a href="<c:url value='/positionData/${positionList.id}'/>"> ${positionList.positionName}</a></td>
         <td><fmt:formatDate value="${positionList.dateStartPos}" pattern="yyyy-MM-dd"/> </td>
         <%--<td>${positionList.dateGotovPos}</td>--%>
         <td>${positionList.users_username}</td>
@@ -104,7 +115,7 @@
         <%--submit--------------------------------------------------------%>
         <div colspan="2">
             <c:if test="${!empty positionList[0].positionName}">
-                <button type="submit"  class="btn btn-info pull-right">Сохранить позицию</button>
+                <button type="submit"  class="btn btn-info pull-right">Добавить еще позицию</button>
             </c:if>
             <c:if test="${empty positionList[0].positionName}">
                 <button type="submit"  class="btn btn-info pull-right">Добавить позицию</button>
