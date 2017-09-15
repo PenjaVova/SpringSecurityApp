@@ -27,6 +27,16 @@
 </table>
 <br>
 <!-- Основная таблица -->
+
+
+<style>
+    .colortext {
+        color: blue; /* Красный цвет выделения */
+    }
+</style>
+<c:if test="${empty positionList}">
+    <h3 class="colortext">В заказе нет позиций, чтобы добавить позицию - заполните форму ниже</h3>
+</c:if>
 <c:if test="${!empty positionList}">
 <table border="1">
     <tr>
