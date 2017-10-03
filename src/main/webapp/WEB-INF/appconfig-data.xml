@@ -55,6 +55,7 @@
                 <value>net.proselyte.springsecurityapp.model.ZakazPosition</value>
                 <value>net.proselyte.springsecurityapp.model.ZakazPreCalc</value>
                 <value>net.proselyte.springsecurityapp.model.ZakazMaterials</value>
+                <value>net.proselyte.springsecurityapp.model.Employee</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -76,14 +77,12 @@
     </bean>
 
     <!--clientDao bean-->
-    <bean id="clientDao" class="net.proselyte.springsecurityapp.dao.ClientDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
+    <bean id="clientDao" class="net.proselyte.springsecurityapp.dao.ClientDaoImpl"
+          p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
 
     <!--clientService bean-->
-    <bean id="clientService" class="net.proselyte.springsecurityapp.service.ClientServiceImpl">
-        <property name="clientDao" ref="clientDao"/>
-    </bean>
+    <bean id="clientService" class="net.proselyte.springsecurityapp.service.ClientServiceImpl"
+          p:clientDao-ref="clientDao"/>
 
      <!--Zakaz-->
     <bean id="zakazDao" class="net.proselyte.springsecurityapp.dao.ZakazDaoImpl"
@@ -109,7 +108,11 @@
     <bean id="zakazMaterialsService" class="net.proselyte.springsecurityapp.service.zakaz.ZakazMaterialsServiceImpl"
           p:zakazMaterialsDao-ref="zakazMaterialsDao"/>
 
-
+    <!--Employee-->
+    <bean id="employeeDao" class="net.proselyte.springsecurityapp.dao.EmployeeDaoImpl"
+          p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="employeeService" class="net.proselyte.springsecurityapp.service.EmployeeServiceImpl"
+          p:employeeDao-ref="employeeDao"/>
 
 
     <tx:annotation-driven/>

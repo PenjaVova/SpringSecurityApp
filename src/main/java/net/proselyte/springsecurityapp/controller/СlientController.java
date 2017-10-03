@@ -37,7 +37,7 @@ public class СlientController {
 
     //добавить клиента
     @RequestMapping(value = "/client/add", method = RequestMethod.POST)
-    public String addNomenclatura(@ModelAttribute("client") Client client) {
+    public String addClient(@ModelAttribute("client") Client client) {
         if (client.getId() == 0) {
             this.clientService.addClient(client);
         } else {

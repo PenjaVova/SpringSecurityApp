@@ -204,6 +204,7 @@
             <li class=""><a href="${contextPath}/AutocompleteNomenclatura"><i class="fa  fa-cirlce"></i> <span>AutocompleteNomenclatura</span></a></li>
             <li class=""><a href="${contextPath}/client"><i class="fa  fa-meh-o"></i> <span>Клиенты</span></a></li>
             <li class=""><a href="${contextPath}/nomenclatura"><i class="fa fa-navicon"></i> <span>Номенклатура</span></a></li>
+            <li class=""><a href="${contextPath}/employee"><i class="fa fa-navicon"></i> <span>Сотрудники</span></a></li>
 
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Заказы</span>
