@@ -12,14 +12,57 @@
 <html>
 <head>
     <title>Сотрудники</title>
-    <link rel="icon" type="image/x-icon"
-          href="<s:url value="/resources/dist/img/favicon.ico"/>" />
+    <link rel="icon" type="image/x-icon" href="<s:url value="/resources/dist/img/favicon.ico"/>" />
     <%@ include file = "jspf/head.jspf"%>
+
     <!-- DataTables -->
     <link rel="stylesheet" href="${contextPath}/resources/plugins/datatables/dataTables.bootstrap.css">
 
+    <!-- bootstrap datepicker -->
+    <script rel="${contextPath}/resources/plugins/datepicker/datepicker3.css"></script>
+
+    <!-- jQuery 2.2.3 -->
+    <script src="${contextPath}/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="${contextPath}/resources/plugins/jQueryUI/jquery-ui.min.js"></script>
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="${contextPath}/resources/plugins/daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="${contextPath}/resources/plugins/datepicker/datepicker3.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="${contextPath}/resources/plugins/iCheck/all.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="${contextPath}/resources/plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="${contextPath}/resources/plugins/timepicker/bootstrap-timepicker.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="${contextPath}/resources/plugins/select2/select2.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="${contextPath}/resources/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="${contextPath}/resources/dist/css/skins/_all-skins.min.css">
+
+    <%--перевод календаря на русский--%>
+    <script src="${contextPath}/resources/plugins/datepicker/locales/bootstrap-datepicker.ru.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker(
+                    {
+                        isRTL: false,
+                        format: 'yyyy-mm-dd',
+                        autoclose:true,
+                        language: 'ru'
+                    }
+
+
+            );
+        } );
+    </script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
     <!--
     <body style="height: auto;" class="skin-blue sidebar-mini">
@@ -274,7 +317,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Клиенты
+                Сотрудники
                 <small>...</small>
             </h1>
             <ol class="breadcrumb">
@@ -290,7 +333,7 @@
                     <!------------------------------------------------------>
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Список клиентов</h3>
+                            <h3 class="box-title">Список сотрудников</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Свернуть">
                                     <i class="fa fa-minus"></i></button>
@@ -305,8 +348,10 @@
                                     <thead><!--Шапка -->
                                     <tr>
                                         <th>ID</th>
-                                        <th>ФИО Клиента</th>
+                                        <th>ФИО Сотрудника</th>
+                                        <th>Должность</th>
                                         <th>№ телефона</th>
+                                        <th>Дата рождения</th>
                                         <th>Изменить</th>
                                     </tr>
                                     </thead><!--/Шапка -->
@@ -315,7 +360,9 @@
                                         <tr>
                                             <td>${employee.id}</td>
                                             <td>${employee.fio}</td>
+                                            <td>${employee.posit}</td>
                                             <td>${employee.phone}</td>
+                                            <td>${employee.birthday}</td>
                                             <td><a href="<c:url value='/employee/edit/${employee.id}'/>">изменить</a></td>
                                         </tr>
                                     </c:forEach>
@@ -323,8 +370,10 @@
                                     <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>ФИО Клиента</th>
+                                        <th>ФИО Сотрудника</th>
+                                        <th>Должность</th>
                                         <th>№ телефона</th>
+                                        <th>Дата рождения</th>
                                         <th>Изменить</th>
                                     </tr>
                                     </tfoot>
@@ -333,7 +382,7 @@
                             <!-- КОНЕЦ Основная таблица -->
                         </c:if>
                     </div><!-- /.box -->
-<!--Добавить клиента---------------------------------------------------->
+<!--Добавить Сотрудника---------------------------------------------------->
                     <div class="box">
                         <div class="box-header">
                             <!--box-title-->
@@ -341,7 +390,7 @@
                                 <h3 class="box-title">Изменить данные по клиенту</h3>
                             </c:if>
                             <c:if test="${empty employee.fio}">
-                                <h3 class="box-title">Добавить нового клиента</h3>
+                                <h3 class="box-title">Добавить сотрудника</h3>
                             </c:if>
                             <!--/box-title-->
                             <div class="box-tools pull-right">
@@ -371,39 +420,177 @@
 <%--2 fio--%>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label for="fio" class="col-sm-2 control-label">ФИО клиента</label>
+                                <label for="fio" class="col-sm-2 control-label">ФИО сотрудника</label>
 
                                 <div class="col-sm-10">
                                     <form:input path="fio" placeholder="Введите полное ФИО клиента" class="form-control" type="text" />
                                 </div>
                             </div>
                         </div>
-
-<%--3 phone--%>
+<%--3 state Должность--%>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label for="phone" class="col-sm-2 control-label">№ телефона</label>
+                                <label for="posit" class="col-sm-2 control-label">Должность</label>
 
                                 <div class="col-sm-10">
-                                    <form:input path="phone" placeholder="Введите телефон клиента" class="form-control" type="text" />
+                                    <form:select path="posit" class="form-control" >
+                                        <form:option value="бухгалтер"/>
+                                        <form:option value="вебразработчик"/>
+                                        <form:option value="водитель-монтажник"/>
+                                        <form:option value="дизайнер"/>
+                                        <form:option value="дизайнер-проектант"/>
+                                        <form:option value="дизайнер-художник"/>
+                                        <form:option value="зав.складом"/>
+                                        <form:option value="зам.директора"/>
+                                        <form:option value="кузнец"/>
+                                        <form:option value="маляр"/>
+                                        <form:option value="механик"/>
+                                        <form:option value="монтажник"/>
+                                        <form:option value="монтажник, слесарь"/>
+                                        <form:option value="нач. участка малярки"/>
+                                        <form:option value="нач.цеха"/>
+                                        <form:option value="плазма"/>
+                                        <form:option value="плазма, оператор"/>
+                                        <form:option value="плазменщик"/>
+                                        <form:option value="резчик"/>
+                                        <form:option value="плазменщик"/>
+                                        <form:option value="сборщик"/>
+                                        <form:option value="сварщик"/>
+                                        <form:option value="сварщик-сборщик"/>
+                                        <form:option value="сварщик-сборщик (монтажник)"/>
+                                        <form:option value="слесарь"/>
+                                        <form:option value="снабжение"/>
+                                        <form:option value="студент-слесарь"/>
+                                    </form:select>
+                            </div>
+                        </div>
+                    </div>
+
+<%--4 address--%>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="address" class="col-sm-2 control-label">Адрес</label>
+
+                                <div class="col-sm-10">
+                                    <form:input path="address" placeholder="Адрес" class="form-control" type="text" />
                                 </div>
                             </div>
                         </div>
 
+<%--6 state --%>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="state" class="col-sm-2 control-label">Статус</label>
+
+                                    <div class="col-sm-10">
+                                        <form:select path="state" class="form-control" >
+                                            <form:option value="болеет"/>
+                                            <form:option value="декрет"/>
+                                            <form:option value="отгул"/>
+                                            <form:option value="отсутствует"/>
+                                            <form:option value="работает"/>
+                                            <form:option value="уволен"/>
+                                        </form:select>
+                                    </div>
+                                </div>
+                            </div>
+
+<%--7 familiia--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="familiia" class="col-sm-2 control-label">Фамилия</label>
+
+                                        <div class="col-sm-10">
+                                            <form:input path="familiia" placeholder="Фамилия" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+<%--8 Имя--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-2 control-label">Имя</label>
+
+                                        <div class="col-sm-10">
+                                            <form:input path="name" placeholder="Имя (полностью)" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+<%--9 otchestvo--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="otchestvo" class="col-sm-2 control-label">Отчество</label>
+
+                                        <div class="col-sm-10">
+                                            <form:input path="otchestvo" placeholder="Отчество" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+<%--10 birthday--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="birthday" class="col-sm-2 control-label">Дата рождения</label>
+
+                                        <div class="col-sm-10">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <form:input path="birthday" class="form-control pull-right" id="datepicker" type="text" autocomplete="false"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+<%--11 email--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">email</label>
+
+                                        <div class="col-sm-10">
+                                            <form:input path="email" placeholder="" class="form-control" type="email" />
+                                        </div>
+                                    </div>
+                                </div>
+
+<%--12 comment--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="comment" class="col-sm-2 control-label">Примечание</label>
+
+                                        <div class="col-sm-10">
+                                            <form:input path="comment" placeholder="max. 250 символов" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+<%--13 isp_obiaz--%>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="isp_obiaz" class="col-sm-2 control-label">Исполняет обязанности</label>
+
+                                        <div class="col-sm-10">
+                                            <form:input path="isp_obiaz" placeholder="id отсутствуещего сотрудника" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
 <%--submit--------------------------------------------------------%>
                         <div colspan="2">
                             <c:if test="${!empty employee.fio}">
                                 <button type="submit"  class="btn btn-info pull-right">Сохранить изменения</button>
                             </c:if>
                             <c:if test="${empty employee.fio}">
-                                <button type="submit"  class="btn btn-info pull-right">Сохранить нового клиента</button>
+                                <button type="submit"  class="btn btn-info pull-right">Сохранить нового сотрудника</button>
                             </c:if>
+
+                            <a href="<c:url value='/employee'/>" class="btn btn-info pull-left">Отмена</a>
                         </div>
 <%----------------------------------------------------------%>
                     </form:form>
                         </div><!--box-body-->
                 </div><!--box-->
-                    <!--КОНЕЦ Добавить элемент------------------------------------------------>
+<!--КОНЕЦ Добавить Сотрудника---------------------------------------------->
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </section> <!-- /.content-wrapper -->
@@ -411,9 +598,11 @@
     </div>
 
     <!-- ./wrapper -->
-    <!-- REQUIRED JS SCRIPTS
-    jQuery 2.2.3 -->
+    <!-- REQUIRED JS SCRIPTS-->
     <script src="${contextPath}/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="${contextPath}/resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="${contextPath}/resources/plugins/jQueryUI/jquery-ui.min.js"></script>
     <!-- Bootstrap 3.3.6 -->
     <script src="${contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
     <!-- DataTables -->
@@ -427,6 +616,10 @@
     <script src="${contextPath}/resources/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="${contextPath}/resources/dist/js/demo.js"></script>
+
+    <!-- bootstrap datepicker -->
+    <script src="${contextPath}/resources/plugins/datepicker/bootstrap-datepicker.js"></script>
+
     <!-- применяет к таблице плагин и перевод на русский язык -->
     <script>
         $(function () {
@@ -458,6 +651,9 @@
             );
         });
     </script>
+    <%--перевод календаря на русский--%>
+    <script src="${contextPath}/resources/plugins/datepicker/locales/bootstrap-datepicker.ru.js"></script>
+
 </div>
 </body>
 </html>
